@@ -8,3 +8,4 @@ title = "CS449 Final Review"
 [output.html]
 mathjax-support = true
 default-theme = "ayu"
+additional-css = ["theme/extra.css"]

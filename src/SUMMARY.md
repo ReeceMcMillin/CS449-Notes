@@ -1,6 +1,7 @@
 # Summary
 
-[Foreword](foreward.md)
+[Foreword](foreword.md)
+[TODO](TODO.md)
 - [Introduction](1/index.md)
 - [Software Development Process](2/index.md)
 - [Scrum for Software Development](3/index.md)
@@ -25,7 +26,7 @@
   - [Refactoring for Encapsulation/Information Hiding](7/7.6.md)
   - [Refactoring for Inheritance/Polymorphism](7/7.7.md)
   - [Refactoring to Design Patterns](7/7.8.md)
-  - [Putting it All Together](7/7.9.md)
+  - [Putting It All Together](7/7.9.md)
 - [Defensive Design for Security](8/index.md)
 - [Software Quality Assurance](9/index.md)
   - [Verification and Validation](9/9.1.md)
@@ -36,6 +37,7 @@
     - [Testing Strategies](9/9.2.4.md)
     - [Testing Levels](9/9.2.5.md)
     - [Testing Types](9/9.2.6.md)
+    - [The Agile Testing Quadrants](9/9.2.7.md)
   - [Static Code Analysis](9/9.3.md)
   - [Theorem Proving](9/9.4.md)
   - [Model Checking](9/9.5.md)
@@ -47,5 +49,5 @@
   - [Boundary Value Analysis](10/10.5.md)
   - [Testing with Pre/Postconditions](10/10.6.md)
 - [Test Automation](11/index.md)
-<!-- - [Quiz Questions](./quizzes.md)
-- [Midterm Questions](./midterm.md) -->
+- [Quiz Questions](previous/quizzes.md)
+- [Midterm Questions](previous/midterm.md)

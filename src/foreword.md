@@ -1,4 +1,4 @@
-# Foreward
+# Foreword
 
 These are notes for certain chapters in Dr. Dianxiang Xu's book *Modern Software Engineering: Principles & Practices*.
 

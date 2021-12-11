@@ -1,0 +1,63 @@
+# TODO
+
+- [ ] Basic Design Principles
+  - [ ] Concepts 
+    - [ ] Modularity
+    - [ ] Cohesion
+    - [ ] Coupling
+    - [ ] Encapsulation
+    - [ ] Information hiding
+  - [ ] Precondition & Postcondition
+    - [ ] Options for Precondition Design: Validated and Assumed Precondition
+    - [ ] Design By Contract: Pre/Postcondition as a Contract
+    - [ ] Assumed Precondition (Non-Redundancy) Principle
+    - [ ] Pre/Postcondition Violation Rules
+    - [ ] Reasonable Precondition Principle
+    - [ ] Precondition Availability Rule
+    - [ ] Understanding Pre/Postcondition Assertions
+- [ ] Change of Contract (Pre/Postcondition) 
+  - [ ] Rule of Contract Change, Stronger/weaker conditions
+- [ ] Object-oriented design
+  - [X] Class Diagrams 
+  - [X] ADTs vs classes
+  - [X] Inheritance
+    - [X] Overriding, Polymorphism/Dynamic Binding
+    - [X] Module View vs Type View
+    - [X] Method Overriding: Pre/Postconditions
+    - [ ] Design By Contract vs Subcontracting **< blocked on Design by Contract**
+    - [X] Method Overriding: Co-variance and contra-variance
+  - [X] Design Heuristics
+    - [X] Cohesive Abstraction
+    - [X] Encapsulation and Information Hiding
+    - [X] Accessors and Mutators
+    - [X] Classes as Data Types
+    - [X] Inheritance
+    - [X] Abstract properties
+  - [X] Agile Design Principles
+    - [X] Single Responsibility Principle
+    - [X] Open-Closed Principle
+- [ ] Refactoring
+  - [ ] What Is Refactoring?
+  - [ ] Why Refactoring
+  - [ ] Code smells
+  - [ ] Refactoring methods
+  - [ ] Refactoring vs design principles
+- [X] Quality Assurance
+  - [X] What Is Quality Assurance
+  - [X] Static Code Analysis
+  - [X] Testing: 
+    - [X] What is software testing
+    - [X] Agile Testing Quadrants
+    - [X] Black-Box, White-Box, Gray-Box
+    - [X] Testing Stages in Waterfall
+- [ ] Code Coverage
+  - [ ] Statement Coverage
+  - [ ] Decision coverage
+  - [ ] Branch coverage 
+  - [ ] Decision vs condition
+  - [ ] Condition coverage
+  - [ ] Condition/decision coverage
+  - [ ] Modified condition/decision coverage
+  - [ ] Multi-condition coverage
+  - [ ] Subsumption Relationship 
+  - [ ] Coverage tool: EclEmma
