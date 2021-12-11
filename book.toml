@@ -1,0 +1,10 @@
+[book]
+authors = ["Reece McMillin"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CS449 Final Review"
+
+[output.html]
+mathjax-support = true
+default-theme = "ayu"
