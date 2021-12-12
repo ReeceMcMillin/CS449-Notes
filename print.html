@@ -1,0 +1,1211 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CS449 Final Review</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item expanded affix "><a href="TODO.html">TODO</a></li><li class="chapter-item expanded "><a href="1/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2/index.html"><strong aria-hidden="true">2.</strong> Software Development Process</a></li><li class="chapter-item expanded "><a href="3/index.html"><strong aria-hidden="true">3.</strong> Scrum for Software Development</a></li><li class="chapter-item expanded "><a href="4/index.html"><strong aria-hidden="true">4.</strong> Fundamentals of Software Design</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4/4.1.html"><strong aria-hidden="true">4.1.</strong> Basic Design Principles</a></li><li class="chapter-item expanded "><a href="4/4.2.html"><strong aria-hidden="true">4.2.</strong> Precondition and Postcondition</a></li><li class="chapter-item expanded "><a href="4/4.3.html"><strong aria-hidden="true">4.3.</strong> Design By Contract</a></li><li class="chapter-item expanded "><a href="4/4.4.html"><strong aria-hidden="true">4.4.</strong> Change of Contract</a></li></ol></li><li class="chapter-item expanded "><a href="5/index.html"><strong aria-hidden="true">5.</strong> Object-Oriented Design</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5/5.1.html"><strong aria-hidden="true">5.1.</strong> Class Diagrams</a></li><li class="chapter-item expanded "><a href="5/5.2.html"><strong aria-hidden="true">5.2.</strong> ADTs as the Class Foundation</a></li><li class="chapter-item expanded "><a href="5/5.3.html"><strong aria-hidden="true">5.3.</strong> Inheritance and Polymorphism</a></li><li class="chapter-item expanded "><a href="5/5.4.html"><strong aria-hidden="true">5.4.</strong> Design Heuristics</a></li><li class="chapter-item expanded "><a href="5/5.5.html"><strong aria-hidden="true">5.5.</strong> The SOLID Principles</a></li></ol></li><li class="chapter-item expanded "><a href="6/index.html"><strong aria-hidden="true">6.</strong> Design Patterns and Anti-Patterns</a></li><li class="chapter-item expanded "><a href="7/index.html"><strong aria-hidden="true">7.</strong> Refactoring for Design Improvement</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="7/7.1.html"><strong aria-hidden="true">7.1.</strong> Code Smells</a></li><li class="chapter-item expanded "><a href="7/7.2.html"><strong aria-hidden="true">7.2.</strong> Named Refactorings</a></li><li class="chapter-item expanded "><a href="7/7.3.html"><strong aria-hidden="true">7.3.</strong> Refactorings for Modularity</a></li><li class="chapter-item expanded "><a href="7/7.4.html"><strong aria-hidden="true">7.4.</strong> Refactoring for High Cohesion</a></li><li class="chapter-item expanded "><a href="7/7.5.html"><strong aria-hidden="true">7.5.</strong> Refactoring for Loose Coupling</a></li><li class="chapter-item expanded "><a href="7/7.6.html"><strong aria-hidden="true">7.6.</strong> Refactoring for Encapsulation/Information Hiding</a></li><li class="chapter-item expanded "><a href="7/7.7.html"><strong aria-hidden="true">7.7.</strong> Refactoring for Inheritance/Polymorphism</a></li><li class="chapter-item expanded "><a href="7/7.8.html"><strong aria-hidden="true">7.8.</strong> Refactoring to Design Patterns</a></li><li class="chapter-item expanded "><a href="7/7.9.html"><strong aria-hidden="true">7.9.</strong> Putting It All Together</a></li></ol></li><li class="chapter-item expanded "><a href="8/index.html"><strong aria-hidden="true">8.</strong> Defensive Design for Security</a></li><li class="chapter-item expanded "><a href="9/index.html"><strong aria-hidden="true">9.</strong> Software Quality Assurance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="9/9.1.html"><strong aria-hidden="true">9.1.</strong> Verification and Validation</a></li><li class="chapter-item expanded "><a href="9/9.2.html"><strong aria-hidden="true">9.2.</strong> Software Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="9/9.2.1.html"><strong aria-hidden="true">9.2.1.</strong> Testing vs. Development Processes</a></li><li class="chapter-item expanded "><a href="9/9.2.2.html"><strong aria-hidden="true">9.2.2.</strong> Test Cases</a></li><li class="chapter-item expanded "><a href="9/9.2.3.html"><strong aria-hidden="true">9.2.3.</strong> The Test Oracle Problem</a></li><li class="chapter-item expanded "><a href="9/9.2.4.html"><strong aria-hidden="true">9.2.4.</strong> Testing Strategies</a></li><li class="chapter-item expanded "><a href="9/9.2.5.html"><strong aria-hidden="true">9.2.5.</strong> Testing Levels</a></li><li class="chapter-item expanded "><a href="9/9.2.6.html"><strong aria-hidden="true">9.2.6.</strong> Testing Types</a></li><li class="chapter-item expanded "><a href="9/9.2.7.html"><strong aria-hidden="true">9.2.7.</strong> The Agile Testing Quadrants</a></li></ol></li><li class="chapter-item expanded "><a href="9/9.3.html"><strong aria-hidden="true">9.3.</strong> Static Code Analysis</a></li><li class="chapter-item expanded "><a href="9/9.4.html"><strong aria-hidden="true">9.4.</strong> Theorem Proving</a></li><li class="chapter-item expanded "><a href="9/9.5.html"><strong aria-hidden="true">9.5.</strong> Model Checking</a></li></ol></li><li class="chapter-item expanded "><a href="10/index.html"><strong aria-hidden="true">10.</strong> Fundamental Testing Techniques</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="10/10.1.html"><strong aria-hidden="true">10.1.</strong> Fault Detection Condition</a></li><li class="chapter-item expanded "><a href="10/10.2.html"><strong aria-hidden="true">10.2.</strong> Code Coverage</a></li><li class="chapter-item expanded "><a href="10/10.3.html"><strong aria-hidden="true">10.3.</strong> Mutation Testing</a></li><li class="chapter-item expanded "><a href="10/10.4.html"><strong aria-hidden="true">10.4.</strong> Equivalence Partitioning</a></li><li class="chapter-item expanded "><a href="10/10.5.html"><strong aria-hidden="true">10.5.</strong> Boundary Value Analysis</a></li><li class="chapter-item expanded "><a href="10/10.6.html"><strong aria-hidden="true">10.6.</strong> Testing with Pre/Postconditions</a></li></ol></li><li class="chapter-item expanded "><a href="11/index.html"><strong aria-hidden="true">11.</strong> Test Automation</a></li><li class="chapter-item expanded "><a href="previous/quizzes.html"><strong aria-hidden="true">12.</strong> Quiz Questions</a></li><li class="chapter-item expanded "><a href="previous/midterm.html"><strong aria-hidden="true">13.</strong> Midterm Questions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CS449 Final Review</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="foreword"><a class="header" href="#foreword">Foreword</a></h1>
+<p>These are notes for certain chapters in Dr. Dianxiang Xu's book <em>Modern Software Engineering: Principles &amp; Practices</em>.</p>
+<p>I'm writing this a few days before the final exam as one part of my prep strategy. Since I'm only re-reading relevant chapters, there will be pretty heavy omissions and missing sections. It'd be nice to pad this out as a resource for future students, but I'll have to return the book less than a week from the time of writing. If you happen to come across this and want to contribute your own notes, feel free to fork the repo or open a PR!</p>
+<p>-Reece</p>
+<h2 id="technical-details"><a class="header" href="#technical-details">Technical Details</a></h2>
+<p>These notes use the stellar static site generator <a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="todo"><a class="header" href="#todo">TODO</a></h1>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Basic Design Principles
+<ul>
+<li><input disabled="" type="checkbox"/>
+Concepts 
+<ul>
+<li><input disabled="" type="checkbox"/>
+Modularity</li>
+<li><input disabled="" type="checkbox"/>
+Cohesion</li>
+<li><input disabled="" type="checkbox"/>
+Coupling</li>
+<li><input disabled="" type="checkbox"/>
+Encapsulation</li>
+<li><input disabled="" type="checkbox"/>
+Information hiding</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Precondition &amp; Postcondition
+<ul>
+<li><input disabled="" type="checkbox"/>
+Options for Precondition Design: Validated and Assumed Precondition</li>
+<li><input disabled="" type="checkbox"/>
+Design By Contract: Pre/Postcondition as a Contract</li>
+<li><input disabled="" type="checkbox"/>
+Assumed Precondition (Non-Redundancy) Principle</li>
+<li><input disabled="" type="checkbox"/>
+Pre/Postcondition Violation Rules</li>
+<li><input disabled="" type="checkbox"/>
+Reasonable Precondition Principle</li>
+<li><input disabled="" type="checkbox"/>
+Precondition Availability Rule</li>
+<li><input disabled="" type="checkbox"/>
+Understanding Pre/Postcondition Assertions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Change of Contract (Pre/Postcondition) 
+<ul>
+<li><input disabled="" type="checkbox"/>
+Rule of Contract Change, Stronger/weaker conditions</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Object-oriented design
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Class Diagrams </li>
+<li><input disabled="" type="checkbox" checked=""/>
+ADTs vs classes</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Inheritance
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Overriding, Polymorphism/Dynamic Binding</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Module View vs Type View</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Method Overriding: Pre/Postconditions</li>
+<li><input disabled="" type="checkbox"/>
+Design By Contract vs Subcontracting <strong>&lt; blocked on Design by Contract</strong></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Method Overriding: Co-variance and contra-variance</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Design Heuristics
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Cohesive Abstraction</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Encapsulation and Information Hiding</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Accessors and Mutators</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Classes as Data Types</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Inheritance</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Abstract properties</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Agile Design Principles
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Single Responsibility Principle</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Open-Closed Principle</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Refactoring
+<ul>
+<li><input disabled="" type="checkbox"/>
+What Is Refactoring?</li>
+<li><input disabled="" type="checkbox"/>
+Why Refactoring</li>
+<li><input disabled="" type="checkbox"/>
+Code smells</li>
+<li><input disabled="" type="checkbox"/>
+Refactoring methods</li>
+<li><input disabled="" type="checkbox"/>
+Refactoring vs design principles</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Quality Assurance
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+What Is Quality Assurance</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Static Code Analysis</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Testing: 
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+What is software testing</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Agile Testing Quadrants</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Black-Box, White-Box, Gray-Box</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Testing Stages in Waterfall</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Code Coverage
+<ul>
+<li><input disabled="" type="checkbox"/>
+Statement Coverage</li>
+<li><input disabled="" type="checkbox"/>
+Decision coverage</li>
+<li><input disabled="" type="checkbox"/>
+Branch coverage </li>
+<li><input disabled="" type="checkbox"/>
+Decision vs condition</li>
+<li><input disabled="" type="checkbox"/>
+Condition coverage</li>
+<li><input disabled="" type="checkbox"/>
+Condition/decision coverage</li>
+<li><input disabled="" type="checkbox"/>
+Modified condition/decision coverage</li>
+<li><input disabled="" type="checkbox"/>
+Multi-condition coverage</li>
+<li><input disabled="" type="checkbox"/>
+Subsumption Relationship </li>
+<li><input disabled="" type="checkbox"/>
+Coverage tool: EclEmma</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1---introduction"><a class="header" href="#chapter-1---introduction">Chapter 1 - Introduction</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Chapter 1 will not be on the final exam.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-2---software-development-process"><a class="header" href="#chapter-2---software-development-process">Chapter 2 - Software Development Process</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Chapter 2 will not be on the final exam.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-3---scrum-for-software-development"><a class="header" href="#chapter-3---scrum-for-software-development">Chapter 3 - Scrum for Software Development</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Chapter 3 will not be on the final exam.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-4---fundamentals-of-software-design"><a class="header" href="#chapter-4---fundamentals-of-software-design">Chapter 4 - Fundamentals of Software Design</a></h1>
+<ul>
+<li><strong>Software Design</strong>: the creative process of transforming a problem described by the requirements specification into a software solution
+<ul>
+<li><strong>High-Level Design</strong>
+<ul>
+<li>software architecture</li>
+<li>overall structure</li>
+<li>relations among components</li>
+<li>properties of components/relations</li>
+</ul>
+</li>
+<li><strong>Low-Level Design</strong>
+<ul>
+<li>logical, detailed design of individual components</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software design is a heuristic, sloppy process</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-design-principles"><a class="header" href="#basic-design-principles">Basic Design Principles</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="precondition-and-postcondition"><a class="header" href="#precondition-and-postcondition">Precondition and Postcondition</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design-by-contract"><a class="header" href="#design-by-contract">Design By Contract</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="change-of-contract"><a class="header" href="#change-of-contract">Change of Contract</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-5---object-oriented-design"><a class="header" href="#chapter-5---object-oriented-design">Chapter 5 - Object-Oriented Design</a></h1>
+<p>Object-oriented software construction is to build a set of interacting ADTs partially or fully implemented.</p>
+<p>Inheritance and polymorphism are also essential features.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-diagrams-p-114"><a class="header" href="#class-diagrams-p-114">Class Diagrams (p. 114)</a></h1>
+<p>Static structure of an object-oriented program containing</p>
+<ul>
+<li>attributes</li>
+<li>constructors</li>
+<li>methods</li>
+<li>relationships among classes and objects</li>
+</ul>
+<p>May be </p>
+<ul>
+<li>created as a design or analysis doc before coding</li>
+<li>generated from existing source code</li>
+</ul>
+<h2 id="relationships-between-classes"><a class="header" href="#relationships-between-classes">Relationships Between Classes</a></h2>
+<p>Two groups:</p>
+<ol>
+<li>class-level relationships
+<ul>
+<li>inheritance</li>
+<li>implementation</li>
+</ul>
+</li>
+<li>instance-level relationships
+<ul>
+<li>dependencies</li>
+<li>association</li>
+<li>aggregation</li>
+<li>composition</li>
+</ul>
+</li>
+</ol>
+<h3 id="class-level-relationship"><a class="header" href="#class-level-relationship">Class-Level Relationship</a></h3>
+<p>Inheritance is also called generalization because the subclass/type is a specialized form of the superclass/type.
+The implementation relationship between a class and an interface means the class <em>implements</em> the interface.</p>
+<h3 id="instance-level-relationship"><a class="header" href="#instance-level-relationship">Instance-Level Relationship</a></h3>
+<center>
+<p><img src="5/../static/uml-relations-notation.png" alt="Relationships Between Classes" /></p>
+</center>
+<ul>
+<li>Dependency
+<ul>
+<li>points from the client element to the server element</li>
+<li>changes to the server may cause changes to the client</li>
+</ul>
+</li>
+<li>Association
+<ul>
+<li>family of links
+<ul>
+<li>bi-directional (line)</li>
+<li>uni-directional (directed line)</li>
+<li>aggregation (includes composition aggregation)</li>
+<li>reflexive (on the same class)</li>
+</ul>
+</li>
+<li>Can include:
+<ul>
+<li>role names</li>
+<li>ownership indicators</li>
+<li><a href="5/5.1.html#multiplicity-notations">multiplicity</a></li>
+<li>visibility</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Aggregation
+<ul>
+<li>specific binary association representing a part-whole or part-of relationship</li>
+<li>contained class does <strong>not</strong> have a strong lifecycle dependency on container
+<ul>
+<li>a teacher <strong>has</strong> students</li>
+<li>destroying a teacher doesn't mean destroying students</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Composition
+<ul>
+<li>aka composition aggregation</li>
+<li>stronger form of aggregation</li>
+<li>considered as a &quot;physical containment&quot; relationship</li>
+<li>when container is destroyed, contents are destroyed</li>
+</ul>
+</li>
+</ul>
+<h4 id="multiplicity-notations"><a class="header" href="#multiplicity-notations">Multiplicity Notations</a></h4>
+<table><thead><tr><th align="center">Notation</th><th align="center">Meaning</th></tr></thead><tbody>
+<tr><td align="center">0</td><td align="center">No instances</td></tr>
+<tr><td align="center">0..1</td><td align="center">No instance or 1 instance</td></tr>
+<tr><td align="center">1 or 1..1</td><td align="center">Exactly 1 instance</td></tr>
+<tr><td align="center">0..* or *</td><td align="center">Zero or more instances</td></tr>
+<tr><td align="center">1..*</td><td align="center">1 or more instances</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adts-as-the-class-foundation-p-117"><a class="header" href="#adts-as-the-class-foundation-p-117">ADTs as the Class Foundation (p. 117)</a></h1>
+<p>The notion of a class supports the basic design principles:</p>
+<ul>
+<li>Modularity</li>
+<li>Cohesion</li>
+<li>Encapsulation</li>
+<li>Information Hiding</li>
+</ul>
+<p>Abstract Data Types (ADTs) help us:</p>
+<ul>
+<li>capture the essential meaning of a class</li>
+<li>develop a deep understanding of acceptable class abstractions</li>
+<li>why it is desirable to document a public interface in terms of:
+<ul>
+<li>preconditions</li>
+<li>postconditions</li>
+<li>invariants.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Abstract Data Type</strong></p>
+<p>A data type for which only the properties of the data and the operations to be performed on the data are specified, without concern for how the data will be represented or how the operations will be implemented.</p>
+</blockquote>
+<p>Usually, an object's prodperties can be captured by its behaviors (operations) rather than its data.</p>
+<h2 id="example-stack-p-119"><a class="header" href="#example-stack-p-119">Example: Stack (p. 119)</a></h2>
+<ul>
+<li>ADT in code
+<ul>
+<li>why it's inadequate - what's the essential property?</li>
+<li>Formal ADT specification solves inadequacy
+<ul>
+<li>Type name and parameters</li>
+<li>Function signatures</li>
+<li>Preconditions</li>
+<li>Axioms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Class Invariant</strong></p>
+<p>A condition that any object of the class must satisfy at certain times.</p>
+</blockquote>
+<p><strong>Example</strong>: In the TicTacToe example, <code>turn</code> must be either <code>X</code> or <code>O</code>, though its data type is <code>char</code>.</p>
+<p>Class invariants are usually established during construction and constantly maintained between calls to public methods. The code within the body of a method <strong>may break</strong> an invariant as long as it is restored before the method returns.</p>
+<p>A class invariant may capture relationships between the methods of the class. For example, <code>peek(push(s, x)) = x</code> and <code>pop(push(x, s)) = s</code> describe the functional relationships between <code>push</code>, <code>pop</code>, and <code>peek</code>.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<ul>
+<li>A non-abstract class is an ADT equipped with implementation details
+<ul>
+<li>the class's public interface corresponds to the ADT specification</li>
+<li>instance variables are the data representation of the ADT</li>
+<li>the methods:
+<ul>
+<li>implement the ADT's functions</li>
+<li>satisfy the preconditions and axioms</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Object-oriented software construction
+<ul>
+<li>Build a collection of interacting <em>real-world entities</em> (ADTs)</li>
+<li>Create classes that are easier to implement initially and modify over time</li>
+<li>At the level of analysis, design, or implementation</li>
+</ul>
+</li>
+<li>The choice of data representation may introduce additional constraints
+<ul>
+<li>if an array is used to represent a stack, whether the stack is full becomes an issue</li>
+</ul>
+</li>
+<li>An abstract class is an ADT with partial or no implementation details</li>
+<li>An interface is an ADT without <strong>any</strong> implementation</li>
+<li>An object-oriented design consists of a set of interacting ADTs, partially or fully implemented</li>
+<li>Without ADTs, classes are like convenient carrying cases for loosely-related collections of data and operations</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="inheritance-and-polymorphism-p-121"><a class="header" href="#inheritance-and-polymorphism-p-121">Inheritance and Polymorphism (p. 121)</a></h1>
+<p>A subclass:
+- inherits all the features from its superclass
+- can modify certain inherited features
+- achieved through method overriding</p>
+<blockquote>
+<p><strong>Polymorphism</strong></p>
+<p>The quality or state of existing in or assuming different forms. For this chapter: an object or reference may take multiple forms in different instances.</p>
+</blockquote>
+<blockquote>
+<p><strong>Dynamic Binding</strong>:</p>
+<p>The process of linking a procedure call to a specific sequence of code (typically a class method) at runtime.</p>
+</blockquote>
+<ul>
+<li>Figure 5.4 in book has a visual representation!</li>
+</ul>
+<h2 id="meanings-of-inheritance-module-vs-type-view"><a class="header" href="#meanings-of-inheritance-module-vs-type-view">Meanings of Inheritance: Module vs. Type View</a></h2>
+<blockquote>
+<p><strong>Module View</strong></p>
+<p>A subclass describes an extension of its superclass from the perspective of reusing the superclass's code.</p>
+</blockquote>
+<ul>
+<li>Problems can arise when a designer
+<ul>
+<li>uses the module view without a meaningful <em>is-a</em> relationship</li>
+<li>does not observe the polymorphism and dynamic binding semantics</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-stacke-as-a-subclass-of-vectore-p-123"><a class="header" href="#example-stacke-as-a-subclass-of-vectore-p-123">Example: <code>Stack&lt;E&gt;</code> as a subclass of <code>Vector&lt;E&gt;</code> (p. 123)</a></h3>
+<ul>
+<li><code>Stack&lt;E&gt;</code> inherits methods from <code>Vector&lt;E&gt;</code> that violate the Stack's LIFO principle
+<ul>
+<li><code>add(0, element)</code> adds to bottom of stack</li>
+<li>`remove(0) removes bottom of stack</li>
+</ul>
+</li>
+<li>A better design would replace inheritance with composition (p. 123)</li>
+</ul>
+<blockquote>
+<p><strong>Type View</strong></p>
+<p>A subclass describes a subtype of the superclass type.</p>
+</blockquote>
+<ul>
+<li>For example, <code>int</code> might be a subtype of <code>long</code> or <code>double</code>.</li>
+<li>The set of objects of a superclass subsumes the set of objects of a subclass.</li>
+<li>More aligned with the semantics of polymorphism than module view</li>
+<li>Generally preferred to module view</li>
+<li>Consistent with ADTs as the class foundation
+<ul>
+<li>A subclass's ADT is a subtype of its superclass's ADT</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-square-vs-rectangle-p-123-125"><a class="header" href="#example-square-vs-rectangle-p-123-125">Example: Square vs. Rectangle (p. 123, 125)</a></h3>
+<p><code>Square</code> as a subclass of <code>Rectangle</code></p>
+<ul>
+<li>in math, a square is a special type of rectangle</li>
+<li>if <code>Square</code> inherits from <code>Rectangle</code>, it must override <code>Rectangle</code>'s <code>setWidth()</code> and <code>setHeight()</code> methods.</li>
+<li>since the classes behave so differently, the <em>is-a</em> relationship isn't ideal.</li>
+<li>there should be <strong>no</strong> inheritance relation</li>
+</ul>
+<blockquote>
+<p><strong>Subtype</strong></p>
+<p>Data type \(t_2\) is a subtype of data type \(t_1\) if every value of \(t_2\) can be assigned to a variable of \(t_1\).</p>
+</blockquote>
+<p>Consider inheritance's relationship with the Open-Closed Principle:</p>
+<ul>
+<li>a subclass may revise an inherited method through overriding while adding new methods.
+<ul>
+<li>open for extension through inheritance</li>
+<li>closed for modification through overriding</li>
+</ul>
+</li>
+</ul>
+<h2 id="prepostcondition-of-method-overriding"><a class="header" href="#prepostcondition-of-method-overriding">Pre/Postcondition of Method Overriding</a></h2>
+<blockquote>
+<p><strong>Subcontracting Rule of Inheritance</strong></p>
+<p>An overriding method that has either</p>
+<ul>
+<li>an equal or weaker precondition</li>
+<li>an equal or strong postcondition</li>
+</ul>
+<p>causes no harm to a client call that relies on the original.</p>
+</blockquote>
+<h2 id="covariancecontravariance-for-method-overriding"><a class="header" href="#covariancecontravariance-for-method-overriding">Covariance/Contravariance for Method Overriding</a></h2>
+<pre><code class="language-java">class AnimalShelter {
+    Animal getAnimalForAdoption();
+    void putAnimal(Animal animal);
+}
+
+class CatShelter extends AnimalShelter {
+    Cat getAnimalForAdoption();
+    void putAnimal(Object animal);
+}
+</code></pre>
+<ul>
+<li><code>getAnimalForAdoption()</code> follows a <strong>covariant</strong> subtyping relationship
+<ul>
+<li><code>Cat extends Animal</code></li>
+<li><code>CatShelter extends AnimalShelter</code></li>
+<li>considered <strong>overriding</strong></li>
+</ul>
+</li>
+<li><code>putAnimal()</code> follows a <strong>contravariant</strong> subtyping relationship
+<ul>
+<li><code>Animal extends Object</code></li>
+<li><code>CatShelter.putAnimal()</code> takes a more general argument than the class it extends from</li>
+<li>considered <strong>overloading</strong></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design-heuristics-p-135"><a class="header" href="#design-heuristics-p-135">Design Heuristics (p. 135)</a></h1>
+<p>Design heuristics are general guidelines, not recipes! They only help <em>look for</em> good characteristics or bad signs of a class design.</p>
+<h2 id="cohesive-abstraction"><a class="header" href="#cohesive-abstraction">Cohesive Abstraction</a></h2>
+<p>A class should be a cohesive module to which the methods belong <em>together</em>.</p>
+<ul>
+<li>Generally associated with a single abstraction (like an ADT).
+<ul>
+<li>should be capturable by a noun or adjective
+<ul>
+<li><code>Stack</code> or <code>Comparable</code></li>
+<li>verbs like <code>print</code> or <code>send</code> should raise a red flag</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Should also think if any items are <em>missing</em></li>
+<li>High cohesion is associated with loose coupling.</li>
+</ul>
+<h2 id="encapsulation-and-information-hiding"><a class="header" href="#encapsulation-and-information-hiding">Encapsulation and Information Hiding</a></h2>
+<p>A cohesive interface doesn't guarantee a good design.</p>
+<p>Data structure should be bundled with associated operations</p>
+<ul>
+<li><code>TicTacToe</code> might contain many appropriate methods, but what if the <code>board</code> is defined in another class?</li>
+</ul>
+<h2 id="accessors-and-mutators"><a class="header" href="#accessors-and-mutators">Accessors and Mutators</a></h2>
+<blockquote>
+<p><strong>Accessor</strong></p>
+<p>A query method that finds out the runtime state of an object of the class.</p>
+</blockquote>
+<blockquote>
+<p><strong>Mutator</strong></p>
+<p>A function that changes the state of an object.</p>
+</blockquote>
+<blockquote>
+<p><strong>Command-Query Separation Principle</strong></p>
+<p>When a class has both accessors and mutators, a clear separation is desirable.</p>
+<ul>
+<li>accessors should not change object states</li>
+<li>mutators should make a certain change</li>
+</ul>
+</blockquote>
+<h2 id="classes-as-data-types"><a class="header" href="#classes-as-data-types">Classes as Data Types</a></h2>
+<p>In a typed object-oriented language, a class is a data type.</p>
+<p>When a class only has static variables/methods, it deserves a closer look.</p>
+<ul>
+<li>this is acceptable if a class is meant to only have one instance (Singleton)</li>
+</ul>
+<h2 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h2>
+<ul>
+<li>in a good inheritance relationship, the superclass's methods should be cohesive with those in the subclass.
+<ul>
+<li><code>Stack&lt;E&gt;</code> and <code>Vector&lt;E&gt;</code> do not have cohesive methods.</li>
+</ul>
+</li>
+<li>will a future change of the superclass affect a subclass?
+<ul>
+<li>avoid introducing new assumptions that could be broken by a potential superclass change</li>
+</ul>
+</li>
+<li>overriding may modify the precondition and postcondition of an overridden method and affect current/future clients of the class</li>
+</ul>
+<h2 id="abstract-properties"><a class="header" href="#abstract-properties">Abstract Properties</a></h2>
+<p>Can often be stated in terms of:</p>
+<ul>
+<li>preconditions</li>
+<li>postconditions</li>
+<li>class invariants</li>
+</ul>
+<p>If not, the class's intent may be unclear.</p>
+<p>Class invariants capture how the constructors and methods (especially mutators and accessors) are related.</p>
+<ul>
+<li>An accessor's postcondition should reflect no object state change</li>
+<li>A mutator's postcondition should specify a <em>specific</em> object state change</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-solid-principles-p-141"><a class="header" href="#the-solid-principles-p-141">The SOLID Principles (p. 141)</a></h1>
+<p>SOLID is a mnemonic acronym for five agile design principles that are intended to make software design more understandable and adaptable to requirements change. The SOLID principles are a subset of many principles promoted by Uncle Bob.</p>
+<blockquote>
+<p><strong>Note:</strong> only the SRP and OCP were covered in class.</p>
+</blockquote>
+<h2 id="single-responsibility-principle"><a class="header" href="#single-responsibility-principle">Single Responsibility Principle</a></h2>
+<blockquote>
+<p><strong>Single Responsibility Principle</strong></p>
+<p>A class should have one and <em>only</em> one reason to be changed.</p>
+</blockquote>
+<ul>
+<li>who is the code responsible to?</li>
+<li>who must the design of the code respond to?</li>
+</ul>
+<p>This does not apply to bug fixes and refactoring - those are the responsibility of the programmer, not the code.</p>
+<p>The SRP is closely related to cohesion and coupling.</p>
+<ul>
+<li>Cohesion is the degree to which the elements contained in a module belong together, mostly from the functional perspective.</li>
+<li>The elements in a cohesive module should change <em>for the same reason</em>.
+<ul>
+<li>with 2+ responsibilities in one module, changes to one may impair or inhibit the others</li>
+</ul>
+</li>
+<li>well-aligned with separation of concerns (4.1.6)</li>
+</ul>
+<pre><code class="language-java">public class RetirementAccount() {
+    public void compileReport();
+    public void printReport();
+}
+</code></pre>
+<p>This class could be changed for</p>
+<ul>
+<li>the content of the report</li>
+<li>the format of the report (HTML, XML, etc)</li>
+</ul>
+<p>These are separate responsibilities, so should be in separate classes.</p>
+<h2 id="open-closed-principle"><a class="header" href="#open-closed-principle">Open-Closed Principle</a></h2>
+<blockquote>
+<p><strong>Open-Closed Principle</strong></p>
+<p>Software modules should be open for extension, but closed for modification.</p>
+</blockquote>
+<p>A subclass may</p>
+<ul>
+<li>extend a superclass through inheritance (open for extension)</li>
+<li>override an inherited method <strong>without the need to change or recompile the superclass</strong> (closed for modification)</li>
+</ul>
+<blockquote>
+<p><strong>Polymorphic Open-Closed Principle</strong></p>
+<p>Extension should not result in changes to the source or binary code of the existing superclass <strong>or clients</strong> of the superclass.</p>
+</blockquote>
+<h3 id="example-closed-shape-vs-open-shape-p-143"><a class="header" href="#example-closed-shape-vs-open-shape-p-143">Example: Closed Shape vs. Open Shape (p. 143):</a></h3>
+<p>General idea:</p>
+<ul>
+<li>several classes (<code>Line</code>, <code>Circle</code>, etc.) extend <code>Shape</code>.</li>
+<li>Some shapes have a <code>calculateArea()</code> method, others don't.</li>
+<li>class <code>Diagram</code> has an <code>ArrayList&lt;Shape&gt;</code> with the following loop:</li>
+</ul>
+<pre><code class="language-java">for (Shape shape : shapes) {
+    if (shape instanceOf Circle)
+        totalArea += (Circle) shape.calculateArea();
+    else if (shape instanceOf Square)
+        totalArea += (Square) shape.calculateArea();
+}
+</code></pre>
+<p>What if we need to add a new shape?</p>
+<ul>
+<li>doesn't affect <code>Shape</code></li>
+<li><strong>does</strong> affect <code>Diagram</code>, a client of <code>Shape</code>
+<ul>
+<li>this violates the OCP</li>
+</ul>
+</li>
+</ul>
+<p>Problem: inadequate classification of <code>Shape</code> objects</p>
+<ul>
+<li>some have area, others don't</li>
+</ul>
+<p>Possible solutions:</p>
+<ul>
+<li>Create separate <code>ClosedShape</code> abstract class with <code>calculateArea()</code> method</li>
+<li>Give <code>Line</code> calculateArea() method, return 0</li>
+</ul>
+<p>When creating a class design that complies with the OCP, it's vital to anticipate likely changes. It allows us to invent an abstraction to protect the change from affecting the existing classes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-6---design-patterns-and-anti-patterns"><a class="header" href="#chapter-6---design-patterns-and-anti-patterns">Chapter 6 - Design Patterns and Anti-Patterns</a></h1>
+<blockquote>
+<p><strong>Note:</strong> this chapter was not covered in class and will not be on the final.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-7---refactoring-for-design-improvement"><a class="header" href="#chapter-7---refactoring-for-design-improvement">Chapter 7 - Refactoring for Design Improvement</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="code-smells"><a class="header" href="#code-smells">Code Smells</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="named-refactorings"><a class="header" href="#named-refactorings">Named Refactorings</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactorings-for-modularity"><a class="header" href="#refactorings-for-modularity">Refactorings for Modularity</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-for-high-cohesion"><a class="header" href="#refactoring-for-high-cohesion">Refactoring for High Cohesion</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-for-loose-coupling"><a class="header" href="#refactoring-for-loose-coupling">Refactoring for Loose Coupling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-for-encapsulationinformation-hiding"><a class="header" href="#refactoring-for-encapsulationinformation-hiding">Refactoring for Encapsulation/Information Hiding</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-for-inheritancepolymorphism"><a class="header" href="#refactoring-for-inheritancepolymorphism">Refactoring for Inheritance/Polymorphism</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-to-design-patterns"><a class="header" href="#refactoring-to-design-patterns">Refactoring to Design Patterns</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="putting-it-all-together"><a class="header" href="#putting-it-all-together">Putting It All Together</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="defensive-design-for-security"><a class="header" href="#defensive-design-for-security">Defensive Design for Security</a></h1>
+<blockquote>
+<p><strong>Note:</strong> this chapter was not covered in class and will not be on the final.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-9---software-quality-assurance"><a class="header" href="#chapter-9---software-quality-assurance">Chapter 9 - Software Quality Assurance</a></h1>
+<blockquote>
+<p><strong>Software Quality Assurance</strong></p>
+<p>A set of activities that monitor and assess the software development methods and processes in a project to ensure proper quality of the software.</p>
+</blockquote>
+<p>Software quality assurance involves both <em>product</em> and <em>process</em> assurance.</p>
+<p>All software development projects should have a quality assurance plan that defines the activities and tasks to ensure that the software satisfies the established requirements and customer needs within the budget and schedule constraints.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="verification-and-validation-p-272"><a class="header" href="#verification-and-validation-p-272">Verification and Validation (p. 272)</a></h1>
+<blockquote>
+<p><strong>Validation</strong></p>
+<p>Aims to ensure that the software meets the needs of customers and other stakeholders. </p>
+<p><em>Are we building the right thing?</em></p>
+</blockquote>
+<ul>
+<li>Sample validation methods:
+<ul>
+<li>requirements reviews</li>
+<li>prototyping</li>
+<li>validation of analysis models</li>
+<li>acceptance testing</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Verification</strong></p>
+<p>Aims to ensure that the software complies with the existing requirements, specifications, or regulations.</p>
+<p><em>Are we building it correctly?</em></p>
+</blockquote>
+<ul>
+<li>
+<p>Sample verification methods:</p>
+<ul>
+<li>reviews</li>
+<li>walkthroughs</li>
+<li>inspections</li>
+<li>testing</li>
+<li>static code analysis</li>
+<li>theorem proving</li>
+<li>model checking</li>
+</ul>
+</li>
+<li>
+<p>Validation often involves acceptance and suitability with external customers while verification is an internal process.</p>
+</li>
+<li>
+<p>Software testing may address both verification and validation issues</p>
+<ul>
+<li>validation
+<ul>
+<li>checks the observed results of test cases against the customer's needs
+<ul>
+<li>acceptance testing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>verification
+<ul>
+<li>checks the observed results against
+<ul>
+<li>a specification (postcondition of a method)</li>
+<li>the desirable and undesirable behavior from implicit requirements or expectations</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="software-testing"><a class="header" href="#software-testing">Software Testing</a></h1>
+<blockquote>
+<p><strong>Software Testing</strong></p>
+<p>Testing is the process of executing a program with the intent of finding errors.</p>
+</blockquote>
+<p>Assume that the program contains errors and then test the program to find as many errors as possible.</p>
+<p>What makes a good test case?</p>
+<ul>
+<li>A <strong>good test</strong> is one that has a high probability of detecting an as-yet undiscovered error.</li>
+<li>A <strong>successful test</strong> is one that detects an error.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-vs-development-processes"><a class="header" href="#testing-vs-development-processes">Testing vs. Development Processes</a></h1>
+<h2 id="testing-stages-in-waterfall"><a class="header" href="#testing-stages-in-waterfall">Testing Stages in Waterfall</a></h2>
+<p>In non-agile processes, testing of given production code is to execute the code with test cases to validate the requirements and find errors. This is usually led by a quality assurance group.</p>
+<ul>
+<li>Executes given production code with test cases to validate requirements and find errors</li>
+<li>Often performed by an independent testing team</li>
+</ul>
+<p>Sample Process:</p>
+<ul>
+<li>specify test requirements</li>
+<li>create a test plan to meet constraints
+<ul>
+<li>computing resources, time, budget</li>
+</ul>
+</li>
+<li>design test cases to cover requirements</li>
+<li>implement tests
+<ul>
+<li>manually perform or write/run test code</li>
+</ul>
+</li>
+<li>analyze test results and create reports</li>
+</ul>
+<p>The testing process in Waterfall is often <strong>destructive</strong> because it attempts to break the software.</p>
+<ul>
+<li>not in Agile/TDD: see below!</li>
+</ul>
+<h2 id="agile-processes"><a class="header" href="#agile-processes">Agile Processes</a></h2>
+<p>In Agile processes, testing is as integral to software development as coding.</p>
+<p>Following agile principles, agile testing</p>
+<ul>
+<li>ensures delivering the business value desired by the customer at frequent intervals</li>
+<li>involves all members of a cross-functional team</li>
+</ul>
+<p>In TDD, test cases are transformed into test code <strong>before</strong> the production code is written.</p>
+<p>Compared to traditional testing, this process is <strong>constructive</strong> in that it builds up software.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="test-cases"><a class="header" href="#test-cases">Test Cases</a></h1>
+<p>A test case is composed of</p>
+<ul>
+<li>a context
+<ul>
+<li>the condition or configuration under which the test can be executed</li>
+</ul>
+</li>
+<li>one or more test inputs
+<ul>
+<li>action or procedure with input data, such as a method call or a UI interaction</li>
+</ul>
+</li>
+<li>corresponding test oracles
+<ul>
+<li>a test oracle consists of
+<ul>
+<li>expected result (oracle value) of input</li>
+<li>comparison of the expected result with the actual result</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="positive-negative-and-malicious-tests"><a class="header" href="#positive-negative-and-malicious-tests">Positive, Negative, and Malicious Tests</a></h2>
+<ul>
+<li>Positive Test
+<ul>
+<li>deals with only valid inputs</li>
+</ul>
+</li>
+<li>Negative Test
+<ul>
+<li>deals with only <em>invalid</em> inputs</li>
+</ul>
+</li>
+<li>Malicious Test
+<ul>
+<li>special type of negative test that attempts to break the software</li>
+<li>e.g. SQL injection tests</li>
+</ul>
+</li>
+</ul>
+<p>To adequately test a program, negative tests usually outnumber positive tests. A ratio of 3:1 is not uncommon.</p>
+<h2 id="test-suites"><a class="header" href="#test-suites">Test Suites</a></h2>
+<p>A test suite is a set of test cases and/or test suites.</p>
+<p>It's generally impossible to create a complete test suite that can exhaustively test a real-world program due to its large input space and possible execution paths. The design of a test suite often aims to select representative tests with a certain strategy.</p>
+<h2 id="pass-and-fail"><a class="header" href="#pass-and-fail">Pass and Fail</a></h2>
+<p>A failing test indicates that either:</p>
+<ul>
+<li>the software under test is faulty</li>
+<li>the test case itself is faulty</li>
+</ul>
+<p><strong>A passing test doesn't guarantee correct software!</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-test-oracle-problem"><a class="header" href="#the-test-oracle-problem">The Test Oracle Problem</a></h1>
+<p>The test oracle needs to address several questions:</p>
+<ul>
+<li>What is the source for the expected result?
+<ul>
+<li>is the source trusted and correct?</li>
+<li>a correct specification isn't always available</li>
+</ul>
+</li>
+<li>Is it possible to define the expected result precisely?
+<ul>
+<li>is there a precision requirement?</li>
+<li>there are different kinds of input with different possible precision</li>
+</ul>
+</li>
+<li>What is the format and media of the expected result?
+<ul>
+<li>is it displayed? printed? streamed into a file? database? network?</li>
+</ul>
+</li>
+<li>What should remain unchanged by the test input?</li>
+<li>Is it feasible to directly or indirectly compare the actual result with the expected result?</li>
+</ul>
+<h2 id="specified-test-oracles"><a class="header" href="#specified-test-oracles">Specified Test Oracles</a></h2>
+<p>Created from a trusted (partial) specification or abstract model.</p>
+<ul>
+<li>trusted specification: precondition/postcondition</li>
+<li>abstract model: finite state machine</li>
+</ul>
+<p>Sometimes implemented as built-in assertions in the source code. A failure occurs when an assertion evaluates to false.</p>
+<h2 id="implicit-test-oracles"><a class="header" href="#implicit-test-oracles">Implicit Test Oracles</a></h2>
+<p>Distinguishes between a system's correct and incorrect behavior through general implicit knowledge rather than domain knowledge or specification.</p>
+<p>Implicit test oracles target faults by demonstrating runtime anomalies such as exceptions, abnormal termination, and crashes. This applies to almost all programs.</p>
+<h2 id="derived-test-oracles"><a class="header" href="#derived-test-oracles">Derived Test Oracles</a></h2>
+<p>Distinguishes correct behavior based on information derived from properties of the software under test, other increments, or implementations of it.</p>
+<p>Regression testing can exploit relations that should hold across multiple versions of the software.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-strategies"><a class="header" href="#testing-strategies">Testing Strategies</a></h1>
+<h2 id="black-box-testing"><a class="header" href="#black-box-testing">Black-Box Testing</a></h2>
+<ul>
+<li>tests with no knowledge of internal workings</li>
+<li>typically tests features according to specification</li>
+<li>sample techniques (detail on p. 276):
+<ul>
+<li>equivalence partitioning</li>
+<li>boundary value analysis</li>
+<li>testing with pre/postconditions</li>
+<li>model-based testing</li>
+</ul>
+</li>
+</ul>
+<h2 id="white-box-testing"><a class="header" href="#white-box-testing">White-Box Testing</a></h2>
+<ul>
+<li>uses knowledge about the code</li>
+<li>sample techniques (detail on p. 277):
+<ul>
+<li>code coverage-based testing</li>
+<li>path testing</li>
+<li>mutation testing</li>
+<li>dynamic symbolic execution</li>
+</ul>
+</li>
+</ul>
+<h2 id="black-box-vs-white-box-testing"><a class="header" href="#black-box-vs-white-box-testing">Black-Box vs. White-Box Testing</a></h2>
+<p>Fuzzing</p>
+<ul>
+<li>black-box when generating test inputs from specification</li>
+<li>white-box when generating test inputs from source code</li>
+</ul>
+<p>Neither strategy is superior, each has advantages and disadvantages.</p>
+<h2 id="gray-box-testing"><a class="header" href="#gray-box-testing">Gray-Box Testing</a></h2>
+<ul>
+<li>Example 1
+<ul>
+<li><em>design</em> tests according to the code of multiple modules (white box)</li>
+<li><em>conduct</em> tests through the exposed interfaces (black box)</li>
+</ul>
+</li>
+<li>Example 2
+<ul>
+<li>create and run tests according to pre/postcondition of a module (black box)</li>
+<li>measure the code coverage (white box)</li>
+<li>if code coverage doesn't meet goal, we can generate more tests from the code to exercise the uncovered statements or paths (white box)</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-levels"><a class="header" href="#testing-levels">Testing Levels</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Not on the &quot;Final Exam Topics&quot; sheet.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-types"><a class="header" href="#testing-types">Testing Types</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Not on the &quot;Final Exam Topics&quot; sheet.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-agile-testing-quadrants"><a class="header" href="#the-agile-testing-quadrants">The Agile Testing Quadrants</a></h1>
+<p>Introduced by B. Marick, popularized by L. Crispin and J. Gregory.</p>
+<p><img src="9/./../static/Agile-Testing-Quadrants.png" alt="The Agile Testing Quadrants" /></p>
+<p>The diagram is slightly different from the book's (p. 282). The book notes that some diagrams may be different because of various context/interpretation discrepancies, or because some terms just have no well-accepted definitions.</p>
+<p>A particular testing form may belong to more than one quadrant. For example, regression testing might fit into all quadrants.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="static-code-analysis"><a class="header" href="#static-code-analysis">Static Code Analysis</a></h1>
+<blockquote>
+<p><strong>Static Code Analysis</strong></p>
+<p>The analysis of source or binary code without actually executing the code. Analogous to automated code review.</p>
+</blockquote>
+<p>Where compilers find syntax errors, SCA tools find software defects. They <em>do not</em> execute given code.</p>
+<p>An SCA tool may build upon compiler or reverse engineering techniques for lexical and syntax analysis. It examines the parsed code from the perspectives of control flows or data flows and identifies potential problems according to specific features about what is good or bad.</p>
+<blockquote>
+<p><strong>Control Flow Analysis</strong></p>
+<p>Uses control flow graphs or call graphs to reason about the order of statements or instructions and the possible execution paths.</p>
+</blockquote>
+<blockquote>
+<p><strong>Data flow analysis</strong></p>
+<p>Examines how the variables (data) are computed and used across the basic code blocks, usually based on the CFGs.</p>
+</blockquote>
+<p>In recent years, machine learning algorithms have been applied to SCA.</p>
+<p>Here, the book covers the tools FindBugs and PMD. These are not listed on the final review sheet but appear on page 284-288 and in the Chapter 9 PowerPoint. There probably also won't be any questions about SCA via machine learning, but that info is on pages 289-290.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="theorem-proving"><a class="header" href="#theorem-proving">Theorem Proving</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Not on the &quot;Final Exam Topics&quot; sheet.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="model-checking"><a class="header" href="#model-checking">Model Checking</a></h1>
+<blockquote>
+<p><strong>Note:</strong> Not on the &quot;Final Exam Topics&quot; sheet.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fundamental-testing-techniques"><a class="header" href="#fundamental-testing-techniques">Fundamental Testing Techniques</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fault-detection-condition"><a class="header" href="#fault-detection-condition">Fault Detection Condition</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="code-coverage"><a class="header" href="#code-coverage">Code Coverage</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mutation-testing"><a class="header" href="#mutation-testing">Mutation Testing</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="equivalence-partitioning"><a class="header" href="#equivalence-partitioning">Equivalence Partitioning</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="boundary-value-analysis"><a class="header" href="#boundary-value-analysis">Boundary Value Analysis</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-with-prepostconditions"><a class="header" href="#testing-with-prepostconditions">Testing with Pre/Postconditions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="test-automation"><a class="header" href="#test-automation">Test Automation</a></h1>
+<blockquote>
+<p><strong>Note:</strong> this chapter was not covered in class and will not be on the final.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-questions"><a class="header" href="#quiz-questions">Quiz Questions</a></h1>
+<h1 id="quiz-3"><a class="header" href="#quiz-3">Quiz 3</a></h1>
+<ol>
+<li>Which condition is weaker than \(x &gt; 0\)?
+<ul>
+<li>\(x \cdot x &gt; 0\)</li>
+<li>Because \(x &gt; 0 \implies x \cdot x &gt; 0\)</li>
+</ul>
+</li>
+<li>Which statement is correct?
+<ul>
+<li>\(length = count\) is neither stronger nor weaker than \(length = (count-1)\)</li>
+</ul>
+</li>
+<li>Which of the following is the most reasonable precondition of the method <code>deposit (double amount)</code> in the BankAccount class?
+<ul>
+<li>\(\text{amount} &gt; 0\)</li>
+</ul>
+</li>
+<li>In the following code, Module B results in a call of <code>sqrt(5)</code>. Which statement is correct?</li>
+</ol>
+<pre><code class="language-java">// Module A
+// Precondition: $x &gt;= 0$
+// Postcondition: return x's square root
+
+double sqrt(double x) {
+    ...
+}
+</code></pre>
+<pre><code class="language-java">// Module B
+
+double x = -5;
+double y = sqrt(x);
+
+assert abs(y * y-x) &lt; eps
+</code></pre>
+<ul>
+<li>There is a bug in Module B</li>
+</ul>
+<h1 id="quiz-4"><a class="header" href="#quiz-4">Quiz 4</a></h1>
+<h1 id="quiz-5"><a class="header" href="#quiz-5">Quiz 5</a></h1>
+<ol>
+<li>Which is relevant to the concept of inheritance in object-oriented programming?
+<ul>
+<li>Dynamic binding, method overriding, polymorphism</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="relevant-midterm-questions"><a class="header" href="#relevant-midterm-questions">Relevant Midterm Questions</a></h1>
+<ol>
+<li>Good software design aims at:
+<ul>
+<li>High cohesion and loose coupling</li>
+</ul>
+</li>
+<li>“Making instance variables private, rather than public” follows the principle of:
+<ul>
+<li>Information hiding</li>
+</ul>
+</li>
+<li>The Law of Demeter (&quot;only talk to friends&quot;) can:
+<ul>
+<li>reduce coupling</li>
+</ul>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
