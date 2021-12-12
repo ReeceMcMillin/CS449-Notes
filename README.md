@@ -6,5 +6,7 @@ I'm writing this a few days before the final exam as one part of my prep strateg
 
 -Reece
 
+[Find the notes here.](https://reecemcmillin.github.io/CS449-Notes/)
+
 ## Technical Details
 These notes use the stellar static site generator [mdBook](https://rust-lang.github.io/mdBook/index.html).
