@@ -29,7 +29,7 @@
   - [Refactoring for Encapsulation/Information Hiding](7/7.6.md)
   - [Refactoring for Inheritance/Polymorphism](7/7.7.md)
   - [Refactoring to Design Patterns](7/7.8.md)
-  - [Putting It All Together](7/7.9.md)
+  - [Putting It All Together]()
 - [Defensive Design for Security]()
 - [Software Quality Assurance](9/index.md)
   - [Verification and Validation](9/9.1.md)

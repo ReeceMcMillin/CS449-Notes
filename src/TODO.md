@@ -50,14 +50,14 @@
     - [X] Agile Testing Quadrants
     - [X] Black-Box, White-Box, Gray-Box
     - [X] Testing Stages in Waterfall
-- [ ] Code Coverage
-  - [ ] Statement Coverage
-  - [ ] Decision coverage
-  - [ ] Branch coverage 
-  - [ ] Decision vs condition
-  - [ ] Condition coverage
-  - [ ] Condition/decision coverage
-  - [ ] Modified condition/decision coverage
-  - [ ] Multi-condition coverage
-  - [ ] Subsumption Relationship 
-  - [ ] Coverage tool: EclEmma
+- [X] Code Coverage
+  - [X] Statement Coverage
+  - [X] Decision coverage
+  - [X] Branch coverage 
+  - [X] Decision vs condition
+  - [X] Condition coverage
+  - [X] Condition/decision coverage
+  - [X] Modified condition/decision coverage
+  - [X] Multi-condition coverage
+  - [X] Subsumption Relationship 
+  - [X] Coverage tool: EclEmma
