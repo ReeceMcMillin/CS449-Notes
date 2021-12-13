@@ -5,6 +5,8 @@
 
 ---
 
+# Final Exam Review Material
+
 - [Introduction]()
 - [Software Development Process]()
 - [Scrum for Software Development]()
@@ -52,5 +54,12 @@
   - [Boundary Value Analysis]()
   - [Testing with Pre/Postconditions]()
 - [Test Automation]()
-- [Quiz Questions](previous/quizzes.md)
-- [Midterm Questions](previous/midterm.md)
+
+---
+
+[Quiz 3: Pre/Postcondition Change](quizzes/quiz_3.md)
+[Quiz 4: Class Diagrams](quizzes/quiz_4.md)
+[Quiz 5: Inheritance 1](quizzes/quiz_5.md)
+[Quiz 6: Inheritance 2](quizzes/quiz_6.md)
+[Quiz 7: Design Heuristics/SOLID](quizzes/quiz_7.md)
+[Relevant Midterm Questions](quizzes/midterm.md)

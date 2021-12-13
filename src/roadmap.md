@@ -66,5 +66,5 @@
 
 # Optional
 
-- [] List of Relevant Midterm Questions
-- [] List of Relevant Quiz Questions
+- [X] Quiz 3-7 questions with explanations
+- [ ] List of relevant midterm questions
