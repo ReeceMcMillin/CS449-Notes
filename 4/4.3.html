@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Design By Contract - CS449 Final Review</title>
+        <title>Design By Contract - CS449 Textbook Notes</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -106,7 +106,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CS449 Final Review</h1>
+                    <h1 class="menu-title">CS449 Textbook Notes</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -137,6 +137,98 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="design-by-contract"><a class="header" href="#design-by-contract">Design By Contract</a></h1>
+<p>Design by Contract views the precondition and postcondition of a method as a contract between</p>
+<ul>
+<li>the method (supplier or server)</li>
+<li>its callers (clients)</li>
+</ul>
+<p>If a client calls the method with the precondition satisfied, then the supplier delivers a final state in which the postcondition is satisfied.</p>
+<ul>
+<li>client
+<ul>
+<li>precondition is an obligation</li>
+<li>postcondition is a right</li>
+</ul>
+</li>
+<li>supplier
+<ul>
+<li>precondition is a right</li>
+<li>postcondition is an obligation</li>
+</ul>
+</li>
+</ul>
+<p>To correctly apply design by contract, each of the following rules must be observed or the program may behave unexpectedly:</p>
+<ul>
+<li><a href="#assumed-precondition-rule">Assumed Precondition Rule</a></li>
+<li><a href="#prepostcondition-violation-rules">Pre/Postcondition Violation Rules</a></li>
+<li><a href="#reasonable-precondition-rule">Reasonable Precondition Rule</a></li>
+<li><a href="#precondition-availability-rule">Precondition Availability Rule</a></li>
+</ul>
+<h2 id="assumed-precondition-rule"><a class="header" href="#assumed-precondition-rule">Assumed Precondition Rule</a></h2>
+<p>Design by Contract adopts the demanding design of the precondition by assuming the precondition <em>always</em> holds.</p>
+<blockquote>
+<p><strong>The Assumed Precondition Rule (The Non-Redundancy Principle)</strong></p>
+<hr />
+<p>The body of a method should not test for its precondition because it is an assumed benefit for the supplier.</p>
+</blockquote>
+<p>In other words, if a call to the method does not satisfy the precondition, the method is not bound by the postcondition.</p>
+<h2 id="prepostcondition-violation-rules"><a class="header" href="#prepostcondition-violation-rules">Pre/Postcondition Violation Rules</a></h2>
+<p>Violation of a pre/postcondition at runtime indicates the existence of a bug.</p>
+<blockquote>
+<p><strong>The Precondition Violation Rule</strong></p>
+<hr />
+<p>A precondition violation is the manifestation of a bug in the <em>client</em> regardless of whether the <em>post</em>condition is satisfied or violated.</p>
+</blockquote>
+<p>In other words, if the client does not fulfill its contract, then the supplier is not bound by the postcondition.</p>
+<pre><code class="language-java">// Precondition:  x &gt;= 0
+// Postcondition: abs(sqrt(x) * sqrt(x) - x) &lt; epsilon
+double sqrt(double x);
+</code></pre>
+<p>When <code>x = -1</code>, the implementation breaks. Because the client violated the precondition, the <em>client</em> code is faulty.</p>
+<blockquote>
+<p><strong>The Postcondition Violation Rule</strong></p>
+<hr />
+<p>A postcondition violation is the manifestation of a bug in the <em>supplier</em> because the supplier did not fulfill its contract.</p>
+</blockquote>
+<pre><code class="language-java">// Precondition:  letter in 'a'..'z' || 'A'..'Z'
+// Postcondition: return true  if letter is a vowel
+//                       false otherwise
+
+boolean isVowel(char letter) {
+    String vowels = &quot;aiouy&quot; // 'e' is missing
+    char ch = Character.toLowerCase(letter);
+    return vowels.indexOf(ch) &gt;= 0;
+}
+</code></pre>
+<p>The call <code>isVowel('E')</code> incorrectly returns false. Because the client satisfied the precondition and the server violated the postcondition, the supplier code is faulty.</p>
+<h2 id="reasonable-precondition-rule"><a class="header" href="#reasonable-precondition-rule">Reasonable Precondition Rule</a></h2>
+<p>In design by contract, the precondition is meant to clarify which cases the method cannot handle concerning logical requirements.</p>
+<blockquote>
+<p><strong>The Reasonable Precondition Rule</strong></p>
+<hr />
+<p>Requires that:</p>
+<ol>
+<li>The precondition should appear in the official documentation distributed to authors of clients.</li>
+<li>The need for the precondition should be justified logically in terms of the specification, not for the supplier's convenience of implementation.</li>
+</ol>
+</blockquote>
+<pre><code class="language-java">public class BankAccount() {
+    public BankAccount();
+    public deposit(double amount);
+}
+</code></pre>
+<p>In the class above, should <code>deposit</code> accept a negative <code>amount</code> to mean withdrawal? Obviously not, because <code>deposit</code> and <code>withdraw</code> exhibit different behaviors.</p>
+<ul>
+<li>hi, can I deposit $-100 please?</li>
+</ul>
+<p>In this case, a precondition of <code>amount &gt; 0</code> would be reasonable.</p>
+<h2 id="precondition-availability-rule"><a class="header" href="#precondition-availability-rule">Precondition Availability Rule</a></h2>
+<p>The precondition must not rely on private variables or methods hidden from the clients.</p>
+<blockquote>
+<p><strong>The Precondition Availability Rule</strong></p>
+<hr />
+<p>Every client of the method should be able to check for its precondition.</p>
+</blockquote>
 
                     </main>
 

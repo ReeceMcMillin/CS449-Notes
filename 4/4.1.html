@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Basic Design Principles - CS449 Final Review</title>
+        <title>Basic Design Principles - CS449 Textbook Notes</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -106,7 +106,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CS449 Final Review</h1>
+                    <h1 class="menu-title">CS449 Textbook Notes</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -137,7 +137,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="basic-design-principles"><a class="header" href="#basic-design-principles">Basic Design Principles</a></h1>
-<p>Overview:</p>
 <ul>
 <li><a href="#modularity">Modularity</a>: software design should be modularized.</li>
 <li><a href="#cohesion">Cohesion</a>: software modules should aim for <strong>high cohesion</strong>.</li>
@@ -149,6 +148,7 @@
 <h2 id="modularity"><a class="header" href="#modularity">Modularity</a></h2>
 <blockquote>
 <p><strong>Modularity</strong></p>
+<hr />
 <p>The degree to which the components of a system are separated.</p>
 </blockquote>
 <p>A modular design divides complex software into uniquely named components (modules), which supports the &quot;divide and conquer&quot; approach for solving a complex problem by breaking it into manageable modules.</p>
@@ -207,12 +207,198 @@
 </ul>
 <blockquote>
 <p><strong>Cohesion</strong></p>
+<hr />
 <p>The degree to which the elements contained in a module belong together.</p>
 </blockquote>
+<p>A module with high cohesion means that the module's elements have a high degree of connectedness.</p>
+<p>Ideally, a cohesive method does one function or action. All statements in the method body work together to achieve the method's higher-level functionality.</p>
+<p>A good <a href="/7/7.1.html">code smell</a> for low cohesion is the method name: if the statements in a method are not connected, it can be hard to find a concise name for the method. </p>
+<ul>
+<li>the <code>doStuff()</code> method</li>
+</ul>
+<p>Cohesion focuses on the class interface, meaning the <em>public</em> constructors and methods.</p>
+<ul>
+<li>A cohesive class's public interface should justify is as an <a href="/5/5.2.html">abstract data type</a>.</li>
+<li>The public constructors/methods belong together and represent the essential properties of an object.</li>
+</ul>
+<p>For example, a <code>Stack&lt;E&gt;</code> is defined by its last-in-first-out (LIFO) property. Thus, a cohesive design of stack might look like the following:</p>
+<pre><code class="language-java">class Stack&lt;E&gt; {
+    public Stack();
+    public E push(E element);
+    public E pop();
+    public E peek();
+    public boolean empty();
+    public int search(E element);
+}
+</code></pre>
+<p>Cohesion measurement must also consider <em>inherited</em> elements. This relates to the <code>Stack&lt;E&gt; extends Vector&lt;E&gt;</code> issue we keep coming back to. Since the <code>Stack</code> inherits methods from <code>Vector</code> that are not consistent with the defining property of a <code>Stack</code> (LIFO), the <code>Stack</code> class is <em>not</em> cohesive.</p>
+<p>In general, a module with low cohesion is difficult to understand, test, maintain, and reuse.</p>
+<p>A cohesive module is:</p>
+<ul>
+<li>more reusable for requirements change</li>
+<li>more testable for quality assurance</li>
+</ul>
+<p>Note: perfect cohesion is <strong>not</strong> the goal of software design! Modules with a single atomic element are cohesive, but either hardly useful or tightly coupled to other modules. This means that cohesion should be <em>balanced</em> with module complexity and coupling.</p>
 <h2 id="coupling"><a class="header" href="#coupling">Coupling</a></h2>
+<blockquote>
+<p><strong>Coupling</strong></p>
+<hr />
+<p>The degree of interdependence between modules or the strength of the relationships between modules.</p>
+</blockquote>
+<p>Good software design aims for <strong>loose coupling</strong>. The problem with tight coupling is that a module needs to be updated whenever one of its coupled modules has changed. The extent of change is relevant to the degree of dependency on the coupled module.</p>
+<p>Tight coupling requires more effort to change, assemble, and test modules.</p>
+<ul>
+<li>testing a method requires all dependencies to be available</li>
+<li>when a failure occurs, tight coupling makes it difficult to locate the source of the fault</li>
+</ul>
+<h3 id="measuring-coupling"><a class="header" href="#measuring-coupling">Measuring Coupling</a></h3>
+<ul>
+<li>Size
+<ul>
+<li>measured by the number of connections between modules</li>
+<li>a module with <code>foo(a, b, c, d, e, f)</code> is more tightly coupled than with <code>bar(a)</code></li>
+<li>consider classes <code>Foo</code> with 4 public methods and <code>Bar</code> with 100 public methods
+<ul>
+<li>a module would be more loosely coupled with <code>Foo</code> than with <code>Bar</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Visibility
+<ul>
+<li>measured by the prominence of the connections between modules
+<ul>
+<li>positive: passing data in a parameter list</li>
+<li>negative: modifying global data (&quot;sneaky connection&quot;)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flexibility
+<ul>
+<li>measured regarding how easily the connections between modules can be changed
+<ul>
+<li>consider <code>Stack&lt;E&gt; extends Vector&lt;E&gt;</code></li>
+<li>too late to change because it would break many existing programs that use <code>Stack</code> with methods inherited from <code>Vector</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Loose coupling is often associated with high cohesion.</p>
+<p>The goal is to minimize the number of modules affected by requirements change <strong>if feasible and reasonable</strong>, because it will make the modules mor reusable and testable.</p>
+<h3 id="basic-example"><a class="header" href="#basic-example">Basic Example</a></h3>
+<p>Note: there's a whole section on refactoring to reduce coupling <a href="/7/7.5.html">right here</a>.</p>
+<p>Consider the following code:</p>
+<pre><code class="language-java">public class Client {
+    public void bar(D d) {
+        E e = d.getE();
+        e.doTheThing();
+    }
+}
+</code></pre>
+<p>Here, <code>bar(d)</code> is coupled to both <code>D</code> and <code>E</code>. Through <code>D</code>, it &quot;talks&quot; to <code>E</code>. To reduce coupling, we can refactor <code>D</code> to handle the interaction with <code>E</code> itself so that <code>bar(d)</code> only needs to talk with <code>D</code>.</p>
+<pre><code class="language-java">public class Client {
+    public void bar(D d) {
+        d.doTheThingOnE();
+    }
+}
+</code></pre>
+<p>This follows the guideline known as the Law of Demeter.</p>
+<blockquote>
+<p><strong>Law of Demeter</strong></p>
+<hr />
+<p>Only talk to immediate friends.</p>
+<p>Each unit should have only limited knowledge about other units: only units &quot;closely&quot; related to the current unit.</p>
+</blockquote>
+<p>The Law of Demeter says that &quot;a given object should assume as little as possible about the structure or properties of anything else (including its subcomponents), in accordance with the principle of <a href="#information-hiding">information hiding</a>.&quot;</p>
+<h3 id="remote-control-example"><a class="header" href="#remote-control-example">Remote Control Example</a></h3>
+<p>Consider the following example:</p>
+<pre><code class="language-java">public class RemoteControl {
+    private SamsungTV tv;
+    public void turnOn() {
+        tv.on();
+    }
+}
+
+public class SamsungTV {
+    public void on();
+    public void off();
+    public void tuneChannel(int channel);
+}
+</code></pre>
+<p>Here, <code>RemoteControl</code> is tightly coupled with (and will be affected by changes to) <code>SamsungTV</code>. It also has no way to <em>interface</em> with other TV brands.</p>
+<p>We can reduce coupling by introducing an interface <code>TV</code> and making <code>SamsungTV</code> implement the interface.</p>
+<pre><code class="language-java">    public class RemoteControl {
+        private TV tv;
+        public void turnOn() {
+            tv.on();
+        }
+    }
+
+    public interface TV {
+        public abstract void on();
+        public abstract void off();
+        public abstract void tuneChannel(int channel);
+    }
+
+    public class SamsungTV implements TV {
+        public void on();
+        public void off();
+        public void tuneCHannel(int channel);
+    }
+</code></pre>
+<p>With that refactoring, we've decoupled <code>RemoteControl</code> from <code>SamsungTV</code>. This gives us the freedom to implement new classes such as <code>PhilipsTV</code> without tightening the coupling of <code>RemoteControl</code>.</p>
 <h2 id="encapsulation"><a class="header" href="#encapsulation">Encapsulation</a></h2>
+<p>Encapsulation provides a way to better modularization by coping with the <em>areas</em> of requirements likely to change. Encapsulating these areas facilitates conceptualizing the underlying problem at a higher level of abstraction so that clients only need to worry about the interface rather than implementation details.</p>
+<p>For our purposes, we can think of encapsulation as a tool used to help achieve <a href="#information-hiding">information hiding</a>.</p>
+<blockquote>
+<p><strong>Encapsulation</strong></p>
+<hr />
+<ol>
+<li>the action of enclosing something as if in a capsule</li>
+<li>the succinct expression or depiction of the essential features of something</li>
+</ol>
+</blockquote>
+<p>In general, the operations associated with a data structure should be entirely confined to one module.</p>
+<ul>
+<li>for Tic Tac Toe, classes <code>Move</code> and <code>GameState</code> may be more appropriately contained within the <code>Board</code> class (<strong>diagram on p. 92</strong>)</li>
+</ul>
 <h2 id="information-hiding"><a class="header" href="#information-hiding">Information Hiding</a></h2>
+<blockquote>
+<p><strong>Information Hiding</strong></p>
+<hr />
+<p>The act of hiding information inside a module, i.e., making it invisible to the modules clients.</p>
+</blockquote>
+<p>Good practice is for a class to make each instance variable private, setting a public <a href="/5/5.4.html#accessors-and-mutators">accessor (getter) and, if necessary, mutator (setter)</a>.</p>
+<p>Public instance variables (global variables) are notoriously difficult to debug. They also tend to change over time, requiring all clients to change.</p>
+<p>A class's testability should be considered when decisions on getters and setters are made - a test may need a getter to verify that a variable has the right value.</p>
+<p>Encapsulation can decrease the need for public instance variables - when all relevant methods are encapsulated within the same module, they all share a common visibility and access can be more appropriately restricted to the outside world.</p>
 <h2 id="separation-of-concerns"><a class="header" href="#separation-of-concerns">Separation of Concerns</a></h2>
+<blockquote>
+<p><strong>Separation of Concerns</strong></p>
+<hr />
+<p>Design principle for separating a program into distinct modules such that each module addresses a separate concern, facilitating module upgrade, reuse, and independent development.</p>
+</blockquote>
+<p>Consider how web development separates concerns:</p>
+<ul>
+<li>HTML: organization of webpage content</li>
+<li>CSS: definition of content presentation style</li>
+<li>JavaScript: how the content interacts and behaves in response to user input</li>
+</ul>
+<p>Despite our best efforts at modularization, some concerns crosscut many modules.</p>
+<ul>
+<li>logging</li>
+<li>error handling</li>
+<li>data persistence</li>
+<li>security checks</li>
+</ul>
+<p>Crosscutting concerns cannot be not well-modularized and are referred to as &quot;tangled&quot; because they are necessarily intermixed with code that handles other concerns. These concerns follow inherently different rules for functional decomposition.</p>
+<p><strong>Aspect-Oriented Programming</strong> attempts to resolve this problem. AOP shouldn't be on the final, but if it is it's covered very briefly in the book on p. 96.</p>
+<h2 id="footnotes"><a class="header" href="#footnotes">Footnotes</a></h2>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter - Wikipedia</a></p>
+</div>
 
                     </main>
 

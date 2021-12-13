@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CS449 Final Review</title>
+        <title>CS449 Textbook Notes</title>
         <meta name="robots" content="noindex" />
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -107,7 +107,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CS449 Final Review</h1>
+                    <h1 class="menu-title">CS449 Textbook Notes</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -145,53 +145,56 @@
 <p>These notes use the stellar static site generator <a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="todo"><a class="header" href="#todo">TODO</a></h1>
 <ul>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Basic Design Principles
 <ul>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Concepts 
 <ul>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Modularity</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Cohesion</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Coupling</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Encapsulation</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Information hiding</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Precondition &amp; Postcondition
 <ul>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Options for Precondition Design: Validated and Assumed Precondition</li>
-<li><input disabled="" type="checkbox"/>
-Design By Contract: Pre/Postcondition as a Contract</li>
-<li><input disabled="" type="checkbox"/>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Design By Contract: Pre/Postcondition as a Contract
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
 Assumed Precondition (Non-Redundancy) Principle</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Pre/Postcondition Violation Rules</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Reasonable Precondition Principle</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Precondition Availability Rule</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Understanding Pre/Postcondition Assertions</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Change of Contract (Pre/Postcondition) 
 <ul>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Rule of Contract Change, Stronger/weaker conditions</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"/>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
 Object-oriented design
 <ul>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -207,8 +210,8 @@ Overriding, Polymorphism/Dynamic Binding</li>
 Module View vs Type View</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Method Overriding: Pre/Postconditions</li>
-<li><input disabled="" type="checkbox"/>
-Design By Contract vs Subcontracting <strong>&lt; blocked on Design by Contract</strong></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Design By Contract vs Subcontracting</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Method Overriding: Co-variance and contra-variance</li>
 </ul>
@@ -336,7 +339,6 @@ Coverage tool: EclEmma</li>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="basic-design-principles"><a class="header" href="#basic-design-principles">Basic Design Principles</a></h1>
-<p>Overview:</p>
 <ul>
 <li><a href="4/4.1.html#modularity">Modularity</a>: software design should be modularized.</li>
 <li><a href="4/4.1.html#cohesion">Cohesion</a>: software modules should aim for <strong>high cohesion</strong>.</li>
@@ -348,6 +350,7 @@ Coverage tool: EclEmma</li>
 <h2 id="modularity"><a class="header" href="#modularity">Modularity</a></h2>
 <blockquote>
 <p><strong>Modularity</strong></p>
+<hr />
 <p>The degree to which the components of a system are separated.</p>
 </blockquote>
 <p>A modular design divides complex software into uniquely named components (modules), which supports the &quot;divide and conquer&quot; approach for solving a complex problem by breaking it into manageable modules.</p>
@@ -406,15 +409,492 @@ Coverage tool: EclEmma</li>
 </ul>
 <blockquote>
 <p><strong>Cohesion</strong></p>
+<hr />
 <p>The degree to which the elements contained in a module belong together.</p>
 </blockquote>
+<p>A module with high cohesion means that the module's elements have a high degree of connectedness.</p>
+<p>Ideally, a cohesive method does one function or action. All statements in the method body work together to achieve the method's higher-level functionality.</p>
+<p>A good <a href="4//7/7.1.html">code smell</a> for low cohesion is the method name: if the statements in a method are not connected, it can be hard to find a concise name for the method. </p>
+<ul>
+<li>the <code>doStuff()</code> method</li>
+</ul>
+<p>Cohesion focuses on the class interface, meaning the <em>public</em> constructors and methods.</p>
+<ul>
+<li>A cohesive class's public interface should justify is as an <a href="4//5/5.2.html">abstract data type</a>.</li>
+<li>The public constructors/methods belong together and represent the essential properties of an object.</li>
+</ul>
+<p>For example, a <code>Stack&lt;E&gt;</code> is defined by its last-in-first-out (LIFO) property. Thus, a cohesive design of stack might look like the following:</p>
+<pre><code class="language-java">class Stack&lt;E&gt; {
+    public Stack();
+    public E push(E element);
+    public E pop();
+    public E peek();
+    public boolean empty();
+    public int search(E element);
+}
+</code></pre>
+<p>Cohesion measurement must also consider <em>inherited</em> elements. This relates to the <code>Stack&lt;E&gt; extends Vector&lt;E&gt;</code> issue we keep coming back to. Since the <code>Stack</code> inherits methods from <code>Vector</code> that are not consistent with the defining property of a <code>Stack</code> (LIFO), the <code>Stack</code> class is <em>not</em> cohesive.</p>
+<p>In general, a module with low cohesion is difficult to understand, test, maintain, and reuse.</p>
+<p>A cohesive module is:</p>
+<ul>
+<li>more reusable for requirements change</li>
+<li>more testable for quality assurance</li>
+</ul>
+<p>Note: perfect cohesion is <strong>not</strong> the goal of software design! Modules with a single atomic element are cohesive, but either hardly useful or tightly coupled to other modules. This means that cohesion should be <em>balanced</em> with module complexity and coupling.</p>
 <h2 id="coupling"><a class="header" href="#coupling">Coupling</a></h2>
+<blockquote>
+<p><strong>Coupling</strong></p>
+<hr />
+<p>The degree of interdependence between modules or the strength of the relationships between modules.</p>
+</blockquote>
+<p>Good software design aims for <strong>loose coupling</strong>. The problem with tight coupling is that a module needs to be updated whenever one of its coupled modules has changed. The extent of change is relevant to the degree of dependency on the coupled module.</p>
+<p>Tight coupling requires more effort to change, assemble, and test modules.</p>
+<ul>
+<li>testing a method requires all dependencies to be available</li>
+<li>when a failure occurs, tight coupling makes it difficult to locate the source of the fault</li>
+</ul>
+<h3 id="measuring-coupling"><a class="header" href="#measuring-coupling">Measuring Coupling</a></h3>
+<ul>
+<li>Size
+<ul>
+<li>measured by the number of connections between modules</li>
+<li>a module with <code>foo(a, b, c, d, e, f)</code> is more tightly coupled than with <code>bar(a)</code></li>
+<li>consider classes <code>Foo</code> with 4 public methods and <code>Bar</code> with 100 public methods
+<ul>
+<li>a module would be more loosely coupled with <code>Foo</code> than with <code>Bar</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Visibility
+<ul>
+<li>measured by the prominence of the connections between modules
+<ul>
+<li>positive: passing data in a parameter list</li>
+<li>negative: modifying global data (&quot;sneaky connection&quot;)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flexibility
+<ul>
+<li>measured regarding how easily the connections between modules can be changed
+<ul>
+<li>consider <code>Stack&lt;E&gt; extends Vector&lt;E&gt;</code></li>
+<li>too late to change because it would break many existing programs that use <code>Stack</code> with methods inherited from <code>Vector</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Loose coupling is often associated with high cohesion.</p>
+<p>The goal is to minimize the number of modules affected by requirements change <strong>if feasible and reasonable</strong>, because it will make the modules mor reusable and testable.</p>
+<h3 id="basic-example"><a class="header" href="#basic-example">Basic Example</a></h3>
+<p>Note: there's a whole section on refactoring to reduce coupling <a href="4//7/7.5.html">right here</a>.</p>
+<p>Consider the following code:</p>
+<pre><code class="language-java">public class Client {
+    public void bar(D d) {
+        E e = d.getE();
+        e.doTheThing();
+    }
+}
+</code></pre>
+<p>Here, <code>bar(d)</code> is coupled to both <code>D</code> and <code>E</code>. Through <code>D</code>, it &quot;talks&quot; to <code>E</code>. To reduce coupling, we can refactor <code>D</code> to handle the interaction with <code>E</code> itself so that <code>bar(d)</code> only needs to talk with <code>D</code>.</p>
+<pre><code class="language-java">public class Client {
+    public void bar(D d) {
+        d.doTheThingOnE();
+    }
+}
+</code></pre>
+<p>This follows the guideline known as the Law of Demeter.</p>
+<blockquote>
+<p><strong>Law of Demeter</strong></p>
+<hr />
+<p>Only talk to immediate friends.</p>
+<p>Each unit should have only limited knowledge about other units: only units &quot;closely&quot; related to the current unit.</p>
+</blockquote>
+<p>The Law of Demeter says that &quot;a given object should assume as little as possible about the structure or properties of anything else (including its subcomponents), in accordance with the principle of <a href="4/4.1.html#information-hiding">information hiding</a>.&quot;</p>
+<h3 id="remote-control-example"><a class="header" href="#remote-control-example">Remote Control Example</a></h3>
+<p>Consider the following example:</p>
+<pre><code class="language-java">public class RemoteControl {
+    private SamsungTV tv;
+    public void turnOn() {
+        tv.on();
+    }
+}
+
+public class SamsungTV {
+    public void on();
+    public void off();
+    public void tuneChannel(int channel);
+}
+</code></pre>
+<p>Here, <code>RemoteControl</code> is tightly coupled with (and will be affected by changes to) <code>SamsungTV</code>. It also has no way to <em>interface</em> with other TV brands.</p>
+<p>We can reduce coupling by introducing an interface <code>TV</code> and making <code>SamsungTV</code> implement the interface.</p>
+<pre><code class="language-java">    public class RemoteControl {
+        private TV tv;
+        public void turnOn() {
+            tv.on();
+        }
+    }
+
+    public interface TV {
+        public abstract void on();
+        public abstract void off();
+        public abstract void tuneChannel(int channel);
+    }
+
+    public class SamsungTV implements TV {
+        public void on();
+        public void off();
+        public void tuneCHannel(int channel);
+    }
+</code></pre>
+<p>With that refactoring, we've decoupled <code>RemoteControl</code> from <code>SamsungTV</code>. This gives us the freedom to implement new classes such as <code>PhilipsTV</code> without tightening the coupling of <code>RemoteControl</code>.</p>
 <h2 id="encapsulation"><a class="header" href="#encapsulation">Encapsulation</a></h2>
+<p>Encapsulation provides a way to better modularization by coping with the <em>areas</em> of requirements likely to change. Encapsulating these areas facilitates conceptualizing the underlying problem at a higher level of abstraction so that clients only need to worry about the interface rather than implementation details.</p>
+<p>For our purposes, we can think of encapsulation as a tool used to help achieve <a href="4/4.1.html#information-hiding">information hiding</a>.</p>
+<blockquote>
+<p><strong>Encapsulation</strong></p>
+<hr />
+<ol>
+<li>the action of enclosing something as if in a capsule</li>
+<li>the succinct expression or depiction of the essential features of something</li>
+</ol>
+</blockquote>
+<p>In general, the operations associated with a data structure should be entirely confined to one module.</p>
+<ul>
+<li>for Tic Tac Toe, classes <code>Move</code> and <code>GameState</code> may be more appropriately contained within the <code>Board</code> class (<strong>diagram on p. 92</strong>)</li>
+</ul>
 <h2 id="information-hiding"><a class="header" href="#information-hiding">Information Hiding</a></h2>
+<blockquote>
+<p><strong>Information Hiding</strong></p>
+<hr />
+<p>The act of hiding information inside a module, i.e., making it invisible to the modules clients.</p>
+</blockquote>
+<p>Good practice is for a class to make each instance variable private, setting a public <a href="4//5/5.4.html#accessors-and-mutators">accessor (getter) and, if necessary, mutator (setter)</a>.</p>
+<p>Public instance variables (global variables) are notoriously difficult to debug. They also tend to change over time, requiring all clients to change.</p>
+<p>A class's testability should be considered when decisions on getters and setters are made - a test may need a getter to verify that a variable has the right value.</p>
+<p>Encapsulation can decrease the need for public instance variables - when all relevant methods are encapsulated within the same module, they all share a common visibility and access can be more appropriately restricted to the outside world.</p>
 <h2 id="separation-of-concerns"><a class="header" href="#separation-of-concerns">Separation of Concerns</a></h2>
+<blockquote>
+<p><strong>Separation of Concerns</strong></p>
+<hr />
+<p>Design principle for separating a program into distinct modules such that each module addresses a separate concern, facilitating module upgrade, reuse, and independent development.</p>
+</blockquote>
+<p>Consider how web development separates concerns:</p>
+<ul>
+<li>HTML: organization of webpage content</li>
+<li>CSS: definition of content presentation style</li>
+<li>JavaScript: how the content interacts and behaves in response to user input</li>
+</ul>
+<p>Despite our best efforts at modularization, some concerns crosscut many modules.</p>
+<ul>
+<li>logging</li>
+<li>error handling</li>
+<li>data persistence</li>
+<li>security checks</li>
+</ul>
+<p>Crosscutting concerns cannot be not well-modularized and are referred to as &quot;tangled&quot; because they are necessarily intermixed with code that handles other concerns. These concerns follow inherently different rules for functional decomposition.</p>
+<p><strong>Aspect-Oriented Programming</strong> attempts to resolve this problem. AOP shouldn't be on the final, but if it is it's covered very briefly in the book on p. 96.</p>
+<h2 id="footnotes"><a class="header" href="#footnotes">Footnotes</a></h2>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter - Wikipedia</a></p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="precondition-and-postcondition"><a class="header" href="#precondition-and-postcondition">Precondition and Postcondition</a></h1>
+<blockquote>
+<p><strong>Precondition</strong></p>
+<hr />
+<p>The constraints on the method's input and the states of all related objects that must hold before the method is called.</p>
+</blockquote>
+<p>The precondition involves:</p>
+<ul>
+<li>explicit parameters</li>
+<li>implicit parameters (e.g. instance variables in the same class)</li>
+<li>global variables</li>
+</ul>
+<blockquote>
+<p><strong>Postcondition</strong></p>
+<hr />
+<p>The constraints on the method's output and the states of all related objects that the method guarantees when it returns.</p>
+</blockquote>
+<p>The postcondition may involve <strong>both</strong></p>
+<ul>
+<li>what is changed</li>
+<li>what remains unchanged</li>
+</ul>
+<p>The precondition \(P\) and the postcondition \(Q\) of a method \(M\) can be represented by the correctness formula \(\{ P \}M\{ Q \}\), also known as <strong>Hoare Triples</strong>.</p>
+<blockquote>
+<p>\(\{ P \}M\{ Q \}\) can be read as &quot;any execution of \(M\), starting in a program state where \(P\) holds, will terminate in a program state where \(Q\) holds.&quot;</p>
+</blockquote>
+<p>Program state is not just limited to the method itself, but <strong>all</strong> relevant objects in the program.</p>
+<p>The correctness formula captures <em>semantic</em> properties of the method, meaning it may be independent of the method's implementation details.</p>
+<ul>
+<li>Consider a <code>Stack</code> object: its <code>pop</code> and <code>peek</code> methods require that the <code>Stack</code> is not empty. That the stack is implemented with a <code>Vector</code> doesn't matter, nor does the actual implementation of <code>pop</code> or <code>peek</code>.</li>
+<li>In other words, the precondition and postcondition of a method describe <em>what to do</em> rather than <em>how to do it</em>.</li>
+</ul>
+<p>Preconditions and postconditions may be specified as:</p>
+<ul>
+<li>comments in source code</li>
+<li>part of the API documentation</li>
+<li>executable assertions in source code
+<ul>
+<li>goal: terminate the program on unexpected failure conditions</li>
+<li><strong>NOTE:</strong>
+<ul>
+<li>assertions should be used to check for conditions that should never occur to identify bugs.</li>
+<li><code>assert</code> is not a control structure</li>
+<li><code>assert</code> is not an input-checking mechanism</li>
+</ul>
+</li>
+<li>as opposed to exceptions, which handle <em>expected</em> failure conditions</li>
+</ul>
+</li>
+</ul>
+<h2 id="assumed-precondition-vs-validated-precondition"><a class="header" href="#assumed-precondition-vs-validated-precondition">Assumed Precondition vs. Validated Precondition</a></h2>
+<ul>
+<li>Assumed Precondition (<em>demanding</em>)
+<ul>
+<li>method assumes that the precondition is always satisfied by all clients</li>
+<li>clients check for precondition <em>before</em> calling method</li>
+<li>adopted in <a href="4/4.3.html">design by contract</a>, must follow those rules
+<ul>
+<li><em>only applies in trustworthy environment</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Validated Precondition (<em>tolerant</em>)
+<ul>
+<li>the precondition is validated in the method body by some control structure
+<ul>
+<li>if/then, etc.</li>
+</ul>
+</li>
+<li>often adopted by defensive design to deal with untrusted clients/external environments</li>
+<li>very important for safety- and security-critical software</li>
+</ul>
+</li>
+</ul>
+<p>Validating a precondition either</p>
+<ul>
+<li>turns the <em>original</em> precondition into a tautology</li>
+<li>converts a partial function<sup class="footnote-reference"><a href="#partial-function">1</a></sup> into a total function<sup class="footnote-reference"><a href="#total-function">2</a></sup></li>
+</ul>
+<p>Validation turns the original precondition into a part of the actual postcondition with a conditional effect. An assumed precondition/corresponding postcondition of</p>
+<pre><code>Precondition:  0 &lt;= row &lt; TOTAL_ROWS and 0 &lt;= column &lt; TOTAL_COLUMNS
+
+Postcondition: return value is either Cell.EMPTY, Cell.CROSS, or Cell.NOUGHT
+</code></pre>
+<p>when validated becomes</p>
+<pre><code>Precondition:  none (tautology, always applicable)
+
+Postcondition: return value is either Cell.EMPTY, Cell.CROSS, or Cell.NOUGHT
+               if 0 &lt;= row &lt; TOTAL_ROWS and 0 &lt;= column &lt; TOTAL_COLUMNS
+               otherwise null
+</code></pre>
+<p>When a method declares a precondition, it usually assumes that the client is responsible for validating the precondition.</p>
+<p>In Test-Driven Development, the precondition and postcondition change over time as the development process evolves. The pre/postconditions at a specific time only reflect the assumptions behind that current iteration of code.</p>
+<h2 id="prepostcondition-specifications"><a class="header" href="#prepostcondition-specifications">Pre/Postcondition Specifications</a></h2>
+<p>Pre/postconditions need to be specified rigorously and precisely. This allows us to use the specification to reason about the correctness of an implementation.</p>
+<p>Obtaining a precise, rigorous specification isn't a trivial task. Consider the following correct specification for a sorting algorithm (p. 101 contains incorrect examples as well).</p>
+<pre><code>Note: count(x, list) returns the number of occurrences of element x in list
+
+Postcondition:
+  - p.length = q.length
+  - q[i] &lt;= q[i + 1] for any i
+  - 0 &lt;= i &lt; q.length - 1 and count(p[j], p) = count(p[j], q), 0 &lt;= j &lt; p.length
+</code></pre>
+<p>Postcondition specifications need to consider both what should change after a method call <em>and what should remain unchanged</em>.</p>
+<p>As a general rule, <strong>don't over-specify</strong> what should remain unchanged. Avoiding all-knowing oracles is an important TDD practice! Checking every detail every time can decrease test efficiency, slowing the iteration speed of TDD (tests should be efficient to be run so frequently).</p>
+<h3 id="practice-exercises"><a class="header" href="#practice-exercises">Practice Exercises</a></h3>
+<p>Write accurate and meaningful specifications for the following:</p>
+<ul>
+<li><code>int[] reverse(int[] list)</code> returns the reversed order of all elements in <code>list</code>.</li>
+<li><code>int linearSearch(int[] list, int key)</code> returns the index of the first occurrence of <code>key</code> in <code>list</code> or <code>-1</code> if it is not found.</li>
+<li><code>bool isVowel(char letter)</code> returns <code>true</code> if <code>letter</code> is a vowel.</li>
+<li><code>bool isLeapYear(int year)</code> returns <code>true</code> if it is a leap year.</li>
+<li><code>TriangleType reportTriangleType(int a, int b, int c)</code> returns the triangle type for the given sides <code>a</code>, <code>b</code>, and <code>c</code>.
+<ul>
+<li><code>TriangleType</code> is an enumeration type <code>{SCALENE, ISOSCELES, EQUILATERAL}</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="footnotes-1"><a class="header" href="#footnotes-1">Footnotes</a></h2>
+<div class="footnote-definition" id="partial-function"><sup class="footnote-definition-label">1</sup>
+<p>A <strong>partial function</strong> is defined for a limited subset of all possible inputs for a given type.</p>
+</div>
+<div class="footnote-definition" id="total-function"><sup class="footnote-definition-label">2</sup>
+<p>A <strong>total function</strong> is defined for all possible inputs for a given type.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="design-by-contract"><a class="header" href="#design-by-contract">Design By Contract</a></h1>
+<p>Design by Contract views the precondition and postcondition of a method as a contract between</p>
+<ul>
+<li>the method (supplier or server)</li>
+<li>its callers (clients)</li>
+</ul>
+<p>If a client calls the method with the precondition satisfied, then the supplier delivers a final state in which the postcondition is satisfied.</p>
+<ul>
+<li>client
+<ul>
+<li>precondition is an obligation</li>
+<li>postcondition is a right</li>
+</ul>
+</li>
+<li>supplier
+<ul>
+<li>precondition is a right</li>
+<li>postcondition is an obligation</li>
+</ul>
+</li>
+</ul>
+<p>To correctly apply design by contract, each of the following rules must be observed or the program may behave unexpectedly:</p>
+<ul>
+<li><a href="4/4.3.html#assumed-precondition-rule">Assumed Precondition Rule</a></li>
+<li><a href="4/4.3.html#prepostcondition-violation-rules">Pre/Postcondition Violation Rules</a></li>
+<li><a href="4/4.3.html#reasonable-precondition-rule">Reasonable Precondition Rule</a></li>
+<li><a href="4/4.3.html#precondition-availability-rule">Precondition Availability Rule</a></li>
+</ul>
+<h2 id="assumed-precondition-rule"><a class="header" href="#assumed-precondition-rule">Assumed Precondition Rule</a></h2>
+<p>Design by Contract adopts the demanding design of the precondition by assuming the precondition <em>always</em> holds.</p>
+<blockquote>
+<p><strong>The Assumed Precondition Rule (The Non-Redundancy Principle)</strong></p>
+<hr />
+<p>The body of a method should not test for its precondition because it is an assumed benefit for the supplier.</p>
+</blockquote>
+<p>In other words, if a call to the method does not satisfy the precondition, the method is not bound by the postcondition.</p>
+<h2 id="prepostcondition-violation-rules"><a class="header" href="#prepostcondition-violation-rules">Pre/Postcondition Violation Rules</a></h2>
+<p>Violation of a pre/postcondition at runtime indicates the existence of a bug.</p>
+<blockquote>
+<p><strong>The Precondition Violation Rule</strong></p>
+<hr />
+<p>A precondition violation is the manifestation of a bug in the <em>client</em> regardless of whether the <em>post</em>condition is satisfied or violated.</p>
+</blockquote>
+<p>In other words, if the client does not fulfill its contract, then the supplier is not bound by the postcondition.</p>
+<pre><code class="language-java">// Precondition:  x &gt;= 0
+// Postcondition: abs(sqrt(x) * sqrt(x) - x) &lt; epsilon
+double sqrt(double x);
+</code></pre>
+<p>When <code>x = -1</code>, the implementation breaks. Because the client violated the precondition, the <em>client</em> code is faulty.</p>
+<blockquote>
+<p><strong>The Postcondition Violation Rule</strong></p>
+<hr />
+<p>A postcondition violation is the manifestation of a bug in the <em>supplier</em> because the supplier did not fulfill its contract.</p>
+</blockquote>
+<pre><code class="language-java">// Precondition:  letter in 'a'..'z' || 'A'..'Z'
+// Postcondition: return true  if letter is a vowel
+//                       false otherwise
+
+boolean isVowel(char letter) {
+    String vowels = &quot;aiouy&quot; // 'e' is missing
+    char ch = Character.toLowerCase(letter);
+    return vowels.indexOf(ch) &gt;= 0;
+}
+</code></pre>
+<p>The call <code>isVowel('E')</code> incorrectly returns false. Because the client satisfied the precondition and the server violated the postcondition, the supplier code is faulty.</p>
+<h2 id="reasonable-precondition-rule"><a class="header" href="#reasonable-precondition-rule">Reasonable Precondition Rule</a></h2>
+<p>In design by contract, the precondition is meant to clarify which cases the method cannot handle concerning logical requirements.</p>
+<blockquote>
+<p><strong>The Reasonable Precondition Rule</strong></p>
+<hr />
+<p>Requires that:</p>
+<ol>
+<li>The precondition should appear in the official documentation distributed to authors of clients.</li>
+<li>The need for the precondition should be justified logically in terms of the specification, not for the supplier's convenience of implementation.</li>
+</ol>
+</blockquote>
+<pre><code class="language-java">public class BankAccount() {
+    public BankAccount();
+    public deposit(double amount);
+}
+</code></pre>
+<p>In the class above, should <code>deposit</code> accept a negative <code>amount</code> to mean withdrawal? Obviously not, because <code>deposit</code> and <code>withdraw</code> exhibit different behaviors.</p>
+<ul>
+<li>hi, can I deposit $-100 please?</li>
+</ul>
+<p>In this case, a precondition of <code>amount &gt; 0</code> would be reasonable.</p>
+<h2 id="precondition-availability-rule"><a class="header" href="#precondition-availability-rule">Precondition Availability Rule</a></h2>
+<p>The precondition must not rely on private variables or methods hidden from the clients.</p>
+<blockquote>
+<p><strong>The Precondition Availability Rule</strong></p>
+<hr />
+<p>Every client of the method should be able to check for its precondition.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="change-of-contract"><a class="header" href="#change-of-contract">Change of Contract</a></h1>
+<h2 id="impact-of-contract-change"><a class="header" href="#impact-of-contract-change">Impact of Contract Change</a></h2>
+<p>Updating a method during development is common for any variety of reasons.</p>
+<p>When a method's signature is changed, all clients (including unit tests) must be updated as well. This sort of change will likely result in compiler errors, which are easy (if tedious) to find and fix.</p>
+<p>Updates become especially risky when a method's original contract is modified <em>without</em> changing the method's signature. This is an implicit interface change that may or may not break existing client code.</p>
+<h2 id="rule-of-contract-change"><a class="header" href="#rule-of-contract-change">Rule of Contract Change</a></h2>
+<p>There are some circumstances where pre/postcondition change may not break client code (including test code).</p>
+<blockquote>
+<p><strong>Rule of Contract Change</strong></p>
+<hr />
+<p>A safe change to a method may replace:</p>
+<ul>
+<li>the existing <strong>precondition</strong> with an equal or <strong>weaker</strong> one</li>
+<li>the existing <strong>postcondition</strong> with an equal or <strong>stronger</strong> one</li>
+</ul>
+</blockquote>
+<p>Given two unequal conditions \(P_1\) and \(P_2\):</p>
+<ul>
+<li>\(P_1\) is <em>stronger</em> than \(P_2\) if \(P_1 \implies P_2\).</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>\(x &gt; 10\) is stronger than \(x &gt; 5\).</li>
+<li>\(y &gt; 0\) is stronger than \(y \geq 0\).</li>
+</ul>
+<p>Some conditions that seem different at first glance may be equivalent.</p>
+<ul>
+<li>\(x &gt; 0 \iff 2x &gt; 0\), so the conditions are equivalent.</li>
+<li><code>even(x)</code> \(\equiv\) <code>!odd(x)</code></li>
+</ul>
+<p>Two unequal conditions may also not be comparable. This circumstance <em>may</em> break client code.</p>
+<ul>
+<li>\(x = 1\) is not stronger or weaker than \(x = 2\).</li>
+<li><code>list.length=count</code> is not stronger or weaker than <code>list.length=count-1</code>.</li>
+</ul>
+<p>Unit tests, if they exist, can be very convenient for verifying the impacts of contract change.</p>
+<h2 id="contract-change-is-incremental"><a class="header" href="#contract-change-is-incremental">Contract Change is Incremental</a></h2>
+<p>A special case of contract change is adding new code to a method while preserving existing functionality for incremental development (such as in TDD). We have to ensure that whenever the new version is correct, the old version is also correct. If it is not, we have to modify existing code.</p>
+<p>The opposite is not necessarily true! A correct original version doesn't guarantee that new code is correct.</p>
+<p>Formalizing this idea:
+\[
+(P_2 \implies Q_2) \implies (P_1 \implies Q_1)
+\]
+where \(P_1, Q_1\) are the original pre/postconditions and \(P_2, Q_2\) are the new pre/postconditions.</p>
+<p>The above rules of equal or weaker new precondition and equal or stronger new postcondition are sufficient (but not necessary) for the above correctness argument.</p>
+<blockquote>
+<p><strong>Theorem</strong>: Let \(P_1 \implies P_2\) and \(Q_2 \implies Q_1\).</p>
+<ul>
+<li>Then \((P_2 \implies Q_2) \implies (P_1 \implies Q_1)\).</li>
+</ul>
+<hr />
+<p><strong>Proof</strong>: omitted, available on p. 111</p>
+</blockquote>
+<p>Consider precondition validation<sup class="footnote-reference"><a href="#precondition-validation">1</a></sup> from <a href="4/4.2.html#assumed-precondition-vs-validated-precondition">Section 4.2</a>. Converting a precondition \(P\) into a tautology <em>necessarily</em> weakens it.<sup class="footnote-reference"><a href="#tautology-weak">2</a></sup> However, it's not clear that the postcondition is necessarily strengthened. When reasoning about the weaker or stronger relation of postconditions, we may need to consider their corresponding preconditions.</p>
+<p>To do so, we need to prove that \(Q_2\) is stronger than \(Q_1\). In other words, show that \(Q_2 \implies Q_1\).<sup class="footnote-reference"><a href="#plain-english">3</a></sup></p>
+<p>Page 111 contains more formulations of this idea.</p>
+<blockquote>
+<p><strong>Takeaway</strong></p>
+<hr />
+<p>Code updated with a weaker precondition and a stronger postcondition</p>
+<ul>
+<li>accepts more inputs</li>
+<li>produces correct results.</li>
+</ul>
+</blockquote>
+<h2 id="footnotes-2"><a class="header" href="#footnotes-2">Footnotes</a></h2>
+<div class="footnote-definition" id="precondition-validation"><sup class="footnote-definition-label">1</sup>
+<p>Specifically the sense of turning the original precondition into a tautology and moving it into the postcondition.</p>
+</div>
+<div class="footnote-definition" id="tautology-weak"><sup class="footnote-definition-label">2</sup>
+<p>Let \(P\) be an arbitrary expression, then \(P \implies \text{true}\). Thus, \(\text{true}\) is weaker than any expression \(P\).</p>
+</div>
+<div class="footnote-definition" id="plain-english"><sup class="footnote-definition-label">3</sup>
+<p>We're trying to prove that whenever the <em>new</em> postcondition (\(Q_2\)) is true, the <em>old</em> postcondition (\(Q_1\)) must also be true. It's a verification that a contract change (new functionality) will <em>never</em> break the original contract expected by a caller.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-5---object-oriented-design"><a class="header" href="#chapter-5---object-oriented-design">Chapter 5 - Object-Oriented Design</a></h1>
 <p>Object-oriented software construction is to build a set of interacting ADTs partially or fully implemented.</p>
 <p>Inheritance and polymorphism are also essential features.</p>
@@ -534,6 +1014,7 @@ The implementation relationship between a class and an interface means the class
 </ul>
 <blockquote>
 <p><strong>Abstract Data Type</strong></p>
+<hr />
 <p>A data type for which only the properties of the data and the operations to be performed on the data are specified, without concern for how the data will be represented or how the operations will be implemented.</p>
 </blockquote>
 <p>Usually, an object's prodperties can be captured by its behaviors (operations) rather than its data.</p>
@@ -555,6 +1036,7 @@ The implementation relationship between a class and an interface means the class
 </ul>
 <blockquote>
 <p><strong>Class Invariant</strong></p>
+<hr />
 <p>A condition that any object of the class must satisfy at certain times.</p>
 </blockquote>
 <p><strong>Example</strong>: In the TicTacToe example, <code>turn</code> must be either <code>X</code> or <code>O</code>, though its data type is <code>char</code>.</p>
@@ -598,10 +1080,12 @@ The implementation relationship between a class and an interface means the class
 - achieved through method overriding</p>
 <blockquote>
 <p><strong>Polymorphism</strong></p>
+<hr />
 <p>The quality or state of existing in or assuming different forms. For this chapter: an object or reference may take multiple forms in different instances.</p>
 </blockquote>
 <blockquote>
 <p><strong>Dynamic Binding</strong>:</p>
+<hr />
 <p>The process of linking a procedure call to a specific sequence of code (typically a class method) at runtime.</p>
 </blockquote>
 <ul>
@@ -610,6 +1094,7 @@ The implementation relationship between a class and an interface means the class
 <h2 id="meanings-of-inheritance-module-vs-type-view"><a class="header" href="#meanings-of-inheritance-module-vs-type-view">Meanings of Inheritance: Module vs. Type View</a></h2>
 <blockquote>
 <p><strong>Module View</strong></p>
+<hr />
 <p>A subclass describes an extension of its superclass from the perspective of reusing the superclass's code.</p>
 </blockquote>
 <ul>
@@ -632,6 +1117,7 @@ The implementation relationship between a class and an interface means the class
 </ul>
 <blockquote>
 <p><strong>Type View</strong></p>
+<hr />
 <p>A subclass describes a subtype of the superclass type.</p>
 </blockquote>
 <ul>
@@ -655,6 +1141,7 @@ The implementation relationship between a class and an interface means the class
 </ul>
 <blockquote>
 <p><strong>Subtype</strong></p>
+<hr />
 <p>Data type \(t_2\) is a subtype of data type \(t_1\) if every value of \(t_2\) can be assigned to a variable of \(t_1\).</p>
 </blockquote>
 <p>Consider inheritance's relationship with the Open-Closed Principle:</p>
@@ -666,16 +1153,27 @@ The implementation relationship between a class and an interface means the class
 </ul>
 </li>
 </ul>
+<h2 id="subcontracting"><a class="header" href="#subcontracting">Subcontracting</a></h2>
+<p>A subclass is a <em>subcontractor</em> of its parent class, meaning it must satisfy <em>at least</em> the same contract. If you subcontract, you must be willing to do the job under the original conditions, no less.</p>
+<blockquote>
+<p><strong>Subcontracting</strong></p>
+<hr />
+<p>Design by contract in the context of inheritance with overriding and dynamic binding.</p>
+</blockquote>
 <h2 id="prepostcondition-of-method-overriding"><a class="header" href="#prepostcondition-of-method-overriding">Pre/Postcondition of Method Overriding</a></h2>
+<p>Consider a server \(A\) with a descendent \(A_1\).
+As a result of dynamic binding, a call from client \(C\) may be served by either \(A\) <em>or</em> \(A_1\) at runtime. This means that, to uphold an ancestor class's contract, the descendent must enforce either an equal or weaker precondition or an equal but stronger postcondition.</p>
 <blockquote>
 <p><strong>Subcontracting Rule of Inheritance</strong></p>
+<hr />
 <p>An overriding method that has either</p>
 <ul>
 <li>an equal or weaker precondition</li>
-<li>an equal or strong postcondition</li>
+<li>an equal or stronger postcondition</li>
 </ul>
 <p>causes no harm to a client call that relies on the original.</p>
 </blockquote>
+<p>So in essence, subcontracting is just a strategy that guarantees descendants of a server do not break a contract expected by a client.</p>
 <h2 id="covariancecontravariance-for-method-overriding"><a class="header" href="#covariancecontravariance-for-method-overriding">Covariance/Contravariance for Method Overriding</a></h2>
 <pre><code class="language-java">class AnimalShelter {
     Animal getAnimalForAdoption();
@@ -730,14 +1228,17 @@ class CatShelter extends AnimalShelter {
 <h2 id="accessors-and-mutators"><a class="header" href="#accessors-and-mutators">Accessors and Mutators</a></h2>
 <blockquote>
 <p><strong>Accessor</strong></p>
+<hr />
 <p>A query method that finds out the runtime state of an object of the class.</p>
 </blockquote>
 <blockquote>
 <p><strong>Mutator</strong></p>
+<hr />
 <p>A function that changes the state of an object.</p>
 </blockquote>
 <blockquote>
 <p><strong>Command-Query Separation Principle</strong></p>
+<hr />
 <p>When a class has both accessors and mutators, a clear separation is desirable.</p>
 <ul>
 <li>accessors should not change object states</li>
@@ -785,6 +1286,7 @@ class CatShelter extends AnimalShelter {
 <h2 id="single-responsibility-principle"><a class="header" href="#single-responsibility-principle">Single Responsibility Principle</a></h2>
 <blockquote>
 <p><strong>Single Responsibility Principle</strong></p>
+<hr />
 <p>A class should have one and <em>only</em> one reason to be changed.</p>
 </blockquote>
 <ul>
@@ -816,6 +1318,7 @@ class CatShelter extends AnimalShelter {
 <h2 id="open-closed-principle"><a class="header" href="#open-closed-principle">Open-Closed Principle</a></h2>
 <blockquote>
 <p><strong>Open-Closed Principle</strong></p>
+<hr />
 <p>Software modules should be open for extension, but closed for modification.</p>
 </blockquote>
 <p>A subclass may</p>
@@ -825,6 +1328,7 @@ class CatShelter extends AnimalShelter {
 </ul>
 <blockquote>
 <p><strong>Polymorphic Open-Closed Principle</strong></p>
+<hr />
 <p>Extension should not result in changes to the source or binary code of the existing superclass <strong>or clients</strong> of the superclass.</p>
 </blockquote>
 <h3 id="example-closed-shape-vs-open-shape-p-143"><a class="header" href="#example-closed-shape-vs-open-shape-p-143">Example: Closed Shape vs. Open Shape (p. 143):</a></h3>
@@ -873,6 +1377,7 @@ class CatShelter extends AnimalShelter {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-9---software-quality-assurance"><a class="header" href="#chapter-9---software-quality-assurance">Chapter 9 - Software Quality Assurance</a></h1>
 <blockquote>
 <p><strong>Software Quality Assurance</strong></p>
+<hr />
 <p>A set of activities that monitor and assess the software development methods and processes in a project to ensure proper quality of the software.</p>
 </blockquote>
 <p>Software quality assurance involves both <em>product</em> and <em>process</em> assurance.</p>
@@ -880,6 +1385,7 @@ class CatShelter extends AnimalShelter {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="verification-and-validation-p-272"><a class="header" href="#verification-and-validation-p-272">Verification and Validation (p. 272)</a></h1>
 <blockquote>
 <p><strong>Validation</strong></p>
+<hr />
 <p>Aims to ensure that the software meets the needs of customers and other stakeholders. </p>
 <p><em>Are we building the right thing?</em></p>
 </blockquote>
@@ -895,6 +1401,7 @@ class CatShelter extends AnimalShelter {
 </ul>
 <blockquote>
 <p><strong>Verification</strong></p>
+<hr />
 <p>Aims to ensure that the software complies with the existing requirements, specifications, or regulations.</p>
 <p><em>Are we building it correctly?</em></p>
 </blockquote>
@@ -942,6 +1449,7 @@ class CatShelter extends AnimalShelter {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="software-testing"><a class="header" href="#software-testing">Software Testing</a></h1>
 <blockquote>
 <p><strong>Software Testing</strong></p>
+<hr />
 <p>Testing is the process of executing a program with the intent of finding errors.</p>
 </blockquote>
 <p>Assume that the program contains errors and then test the program to find as many errors as possible.</p>
@@ -1133,16 +1641,19 @@ class CatShelter extends AnimalShelter {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="static-code-analysis"><a class="header" href="#static-code-analysis">Static Code Analysis</a></h1>
 <blockquote>
 <p><strong>Static Code Analysis</strong></p>
+<hr />
 <p>The analysis of source or binary code without actually executing the code. Analogous to automated code review.</p>
 </blockquote>
 <p>Where compilers find syntax errors, SCA tools find software defects. They <em>do not</em> execute given code.</p>
 <p>An SCA tool may build upon compiler or reverse engineering techniques for lexical and syntax analysis. It examines the parsed code from the perspectives of control flows or data flows and identifies potential problems according to specific features about what is good or bad.</p>
 <blockquote>
 <p><strong>Control Flow Analysis</strong></p>
+<hr />
 <p>Uses control flow graphs or call graphs to reason about the order of statements or instructions and the possible execution paths.</p>
 </blockquote>
 <blockquote>
-<p><strong>Data flow analysis</strong></p>
+<p><strong>Data Flow Analysis</strong></p>
+<hr />
 <p>Examines how the variables (data) are computed and used across the basic code blocks, usually based on the CFGs.</p>
 </blockquote>
 <p>In recent years, machine learning algorithms have been applied to SCA.</p>

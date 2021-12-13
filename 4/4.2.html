@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Precondition and Postcondition - CS449 Final Review</title>
+        <title>Precondition and Postcondition - CS449 Textbook Notes</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -106,7 +106,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CS449 Final Review</h1>
+                    <h1 class="menu-title">CS449 Textbook Notes</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -137,6 +137,131 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="precondition-and-postcondition"><a class="header" href="#precondition-and-postcondition">Precondition and Postcondition</a></h1>
+<blockquote>
+<p><strong>Precondition</strong></p>
+<hr />
+<p>The constraints on the method's input and the states of all related objects that must hold before the method is called.</p>
+</blockquote>
+<p>The precondition involves:</p>
+<ul>
+<li>explicit parameters</li>
+<li>implicit parameters (e.g. instance variables in the same class)</li>
+<li>global variables</li>
+</ul>
+<blockquote>
+<p><strong>Postcondition</strong></p>
+<hr />
+<p>The constraints on the method's output and the states of all related objects that the method guarantees when it returns.</p>
+</blockquote>
+<p>The postcondition may involve <strong>both</strong></p>
+<ul>
+<li>what is changed</li>
+<li>what remains unchanged</li>
+</ul>
+<p>The precondition \(P\) and the postcondition \(Q\) of a method \(M\) can be represented by the correctness formula \(\{ P \}M\{ Q \}\), also known as <strong>Hoare Triples</strong>.</p>
+<blockquote>
+<p>\(\{ P \}M\{ Q \}\) can be read as &quot;any execution of \(M\), starting in a program state where \(P\) holds, will terminate in a program state where \(Q\) holds.&quot;</p>
+</blockquote>
+<p>Program state is not just limited to the method itself, but <strong>all</strong> relevant objects in the program.</p>
+<p>The correctness formula captures <em>semantic</em> properties of the method, meaning it may be independent of the method's implementation details.</p>
+<ul>
+<li>Consider a <code>Stack</code> object: its <code>pop</code> and <code>peek</code> methods require that the <code>Stack</code> is not empty. That the stack is implemented with a <code>Vector</code> doesn't matter, nor does the actual implementation of <code>pop</code> or <code>peek</code>.</li>
+<li>In other words, the precondition and postcondition of a method describe <em>what to do</em> rather than <em>how to do it</em>.</li>
+</ul>
+<p>Preconditions and postconditions may be specified as:</p>
+<ul>
+<li>comments in source code</li>
+<li>part of the API documentation</li>
+<li>executable assertions in source code
+<ul>
+<li>goal: terminate the program on unexpected failure conditions</li>
+<li><strong>NOTE:</strong>
+<ul>
+<li>assertions should be used to check for conditions that should never occur to identify bugs.</li>
+<li><code>assert</code> is not a control structure</li>
+<li><code>assert</code> is not an input-checking mechanism</li>
+</ul>
+</li>
+<li>as opposed to exceptions, which handle <em>expected</em> failure conditions</li>
+</ul>
+</li>
+</ul>
+<h2 id="assumed-precondition-vs-validated-precondition"><a class="header" href="#assumed-precondition-vs-validated-precondition">Assumed Precondition vs. Validated Precondition</a></h2>
+<ul>
+<li>Assumed Precondition (<em>demanding</em>)
+<ul>
+<li>method assumes that the precondition is always satisfied by all clients</li>
+<li>clients check for precondition <em>before</em> calling method</li>
+<li>adopted in <a href="4.3.html">design by contract</a>, must follow those rules
+<ul>
+<li><em>only applies in trustworthy environment</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Validated Precondition (<em>tolerant</em>)
+<ul>
+<li>the precondition is validated in the method body by some control structure
+<ul>
+<li>if/then, etc.</li>
+</ul>
+</li>
+<li>often adopted by defensive design to deal with untrusted clients/external environments</li>
+<li>very important for safety- and security-critical software</li>
+</ul>
+</li>
+</ul>
+<p>Validating a precondition either</p>
+<ul>
+<li>turns the <em>original</em> precondition into a tautology</li>
+<li>converts a partial function<sup class="footnote-reference"><a href="#partial-function">1</a></sup> into a total function<sup class="footnote-reference"><a href="#total-function">2</a></sup></li>
+</ul>
+<p>Validation turns the original precondition into a part of the actual postcondition with a conditional effect. An assumed precondition/corresponding postcondition of</p>
+<pre><code>Precondition:  0 &lt;= row &lt; TOTAL_ROWS and 0 &lt;= column &lt; TOTAL_COLUMNS
+
+Postcondition: return value is either Cell.EMPTY, Cell.CROSS, or Cell.NOUGHT
+</code></pre>
+<p>when validated becomes</p>
+<pre><code>Precondition:  none (tautology, always applicable)
+
+Postcondition: return value is either Cell.EMPTY, Cell.CROSS, or Cell.NOUGHT
+               if 0 &lt;= row &lt; TOTAL_ROWS and 0 &lt;= column &lt; TOTAL_COLUMNS
+               otherwise null
+</code></pre>
+<p>When a method declares a precondition, it usually assumes that the client is responsible for validating the precondition.</p>
+<p>In Test-Driven Development, the precondition and postcondition change over time as the development process evolves. The pre/postconditions at a specific time only reflect the assumptions behind that current iteration of code.</p>
+<h2 id="prepostcondition-specifications"><a class="header" href="#prepostcondition-specifications">Pre/Postcondition Specifications</a></h2>
+<p>Pre/postconditions need to be specified rigorously and precisely. This allows us to use the specification to reason about the correctness of an implementation.</p>
+<p>Obtaining a precise, rigorous specification isn't a trivial task. Consider the following correct specification for a sorting algorithm (p. 101 contains incorrect examples as well).</p>
+<pre><code>Note: count(x, list) returns the number of occurrences of element x in list
+
+Postcondition:
+  - p.length = q.length
+  - q[i] &lt;= q[i + 1] for any i
+  - 0 &lt;= i &lt; q.length - 1 and count(p[j], p) = count(p[j], q), 0 &lt;= j &lt; p.length
+</code></pre>
+<p>Postcondition specifications need to consider both what should change after a method call <em>and what should remain unchanged</em>.</p>
+<p>As a general rule, <strong>don't over-specify</strong> what should remain unchanged. Avoiding all-knowing oracles is an important TDD practice! Checking every detail every time can decrease test efficiency, slowing the iteration speed of TDD (tests should be efficient to be run so frequently).</p>
+<h3 id="practice-exercises"><a class="header" href="#practice-exercises">Practice Exercises</a></h3>
+<p>Write accurate and meaningful specifications for the following:</p>
+<ul>
+<li><code>int[] reverse(int[] list)</code> returns the reversed order of all elements in <code>list</code>.</li>
+<li><code>int linearSearch(int[] list, int key)</code> returns the index of the first occurrence of <code>key</code> in <code>list</code> or <code>-1</code> if it is not found.</li>
+<li><code>bool isVowel(char letter)</code> returns <code>true</code> if <code>letter</code> is a vowel.</li>
+<li><code>bool isLeapYear(int year)</code> returns <code>true</code> if it is a leap year.</li>
+<li><code>TriangleType reportTriangleType(int a, int b, int c)</code> returns the triangle type for the given sides <code>a</code>, <code>b</code>, and <code>c</code>.
+<ul>
+<li><code>TriangleType</code> is an enumeration type <code>{SCALENE, ISOSCELES, EQUILATERAL}</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="footnotes"><a class="header" href="#footnotes">Footnotes</a></h2>
+<div class="footnote-definition" id="partial-function"><sup class="footnote-definition-label">1</sup>
+<p>A <strong>partial function</strong> is defined for a limited subset of all possible inputs for a given type.</p>
+</div>
+<div class="footnote-definition" id="total-function"><sup class="footnote-definition-label">2</sup>
+<p>A <strong>total function</strong> is defined for all possible inputs for a given type.</p>
+</div>
 
                     </main>
 

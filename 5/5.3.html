@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Inheritance and Polymorphism - CS449 Final Review</title>
+        <title>Inheritance and Polymorphism - CS449 Textbook Notes</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -106,7 +106,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CS449 Final Review</h1>
+                    <h1 class="menu-title">CS449 Textbook Notes</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -143,10 +143,12 @@
 - achieved through method overriding</p>
 <blockquote>
 <p><strong>Polymorphism</strong></p>
+<hr />
 <p>The quality or state of existing in or assuming different forms. For this chapter: an object or reference may take multiple forms in different instances.</p>
 </blockquote>
 <blockquote>
 <p><strong>Dynamic Binding</strong>:</p>
+<hr />
 <p>The process of linking a procedure call to a specific sequence of code (typically a class method) at runtime.</p>
 </blockquote>
 <ul>
@@ -155,6 +157,7 @@
 <h2 id="meanings-of-inheritance-module-vs-type-view"><a class="header" href="#meanings-of-inheritance-module-vs-type-view">Meanings of Inheritance: Module vs. Type View</a></h2>
 <blockquote>
 <p><strong>Module View</strong></p>
+<hr />
 <p>A subclass describes an extension of its superclass from the perspective of reusing the superclass's code.</p>
 </blockquote>
 <ul>
@@ -177,6 +180,7 @@
 </ul>
 <blockquote>
 <p><strong>Type View</strong></p>
+<hr />
 <p>A subclass describes a subtype of the superclass type.</p>
 </blockquote>
 <ul>
@@ -200,6 +204,7 @@
 </ul>
 <blockquote>
 <p><strong>Subtype</strong></p>
+<hr />
 <p>Data type \(t_2\) is a subtype of data type \(t_1\) if every value of \(t_2\) can be assigned to a variable of \(t_1\).</p>
 </blockquote>
 <p>Consider inheritance's relationship with the Open-Closed Principle:</p>
@@ -211,16 +216,27 @@
 </ul>
 </li>
 </ul>
+<h2 id="subcontracting"><a class="header" href="#subcontracting">Subcontracting</a></h2>
+<p>A subclass is a <em>subcontractor</em> of its parent class, meaning it must satisfy <em>at least</em> the same contract. If you subcontract, you must be willing to do the job under the original conditions, no less.</p>
+<blockquote>
+<p><strong>Subcontracting</strong></p>
+<hr />
+<p>Design by contract in the context of inheritance with overriding and dynamic binding.</p>
+</blockquote>
 <h2 id="prepostcondition-of-method-overriding"><a class="header" href="#prepostcondition-of-method-overriding">Pre/Postcondition of Method Overriding</a></h2>
+<p>Consider a server \(A\) with a descendent \(A_1\).
+As a result of dynamic binding, a call from client \(C\) may be served by either \(A\) <em>or</em> \(A_1\) at runtime. This means that, to uphold an ancestor class's contract, the descendent must enforce either an equal or weaker precondition or an equal but stronger postcondition.</p>
 <blockquote>
 <p><strong>Subcontracting Rule of Inheritance</strong></p>
+<hr />
 <p>An overriding method that has either</p>
 <ul>
 <li>an equal or weaker precondition</li>
-<li>an equal or strong postcondition</li>
+<li>an equal or stronger postcondition</li>
 </ul>
 <p>causes no harm to a client call that relies on the original.</p>
 </blockquote>
+<p>So in essence, subcontracting is just a strategy that guarantees descendants of a server do not break a contract expected by a client.</p>
 <h2 id="covariancecontravariance-for-method-overriding"><a class="header" href="#covariancecontravariance-for-method-overriding">Covariance/Contravariance for Method Overriding</a></h2>
 <pre><code class="language-java">class AnimalShelter {
     Animal getAnimalForAdoption();
