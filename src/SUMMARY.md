@@ -1,7 +1,7 @@
 # Summary
 
 [Overview](overview.md)
-[TODO](TODO.md)
+[Roadmap](roadmap.md)
 
 ---
 
@@ -23,7 +23,7 @@
 - [Refactoring for Design Improvement](7/index.md)
   - [Code Smells](7/7.1.md)
   - [Named Refactorings](7/7.2.md)
-  - [Refactorings for Modularity](7/7.3.md)
+  - [Refactoring for Modularity](7/7.3.md)
   - [Refactoring for High Cohesion](7/7.4.md)
   - [Refactoring for Loose Coupling](7/7.5.md)
   - [Refactoring for Encapsulation/Information Hiding](7/7.6.md)

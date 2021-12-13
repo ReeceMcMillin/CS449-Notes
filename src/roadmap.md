@@ -1,4 +1,6 @@
-# TODO
+# Final Exam Roadmap
+
+## Main Points
 
 - [X] Basic Design Principles
   - [X] Concepts 
@@ -36,12 +38,12 @@
   - [X] Agile Design Principles
     - [X] Single Responsibility Principle
     - [X] Open-Closed Principle
-- [ ] Refactoring
-  - [ ] What Is Refactoring?
-  - [ ] Why Refactoring
-  - [ ] Code smells
-  - [ ] Refactoring methods
-  - [ ] Refactoring vs design principles
+- [X] Refactoring
+  - [X] What Is Refactoring?
+  - [X] Why Refactoring
+  - [X] Code smells
+  - [X] Refactoring methods
+  - [X] Refactoring vs design principles
 - [X] Quality Assurance
   - [X] What Is Quality Assurance
   - [X] Static Code Analysis
@@ -61,3 +63,8 @@
   - [X] Multi-condition coverage
   - [X] Subsumption Relationship 
   - [X] Coverage tool: EclEmma
+
+# Optional
+
+- [] List of Relevant Midterm Questions
+- [] List of Relevant Quiz Questions
