@@ -1,30 +1,30 @@
 # TODO
 
-- [ ] Basic Design Principles
-  - [ ] Concepts 
-    - [ ] Modularity
-    - [ ] Cohesion
-    - [ ] Coupling
-    - [ ] Encapsulation
-    - [ ] Information hiding
-  - [ ] Precondition & Postcondition
-    - [ ] Options for Precondition Design: Validated and Assumed Precondition
-    - [ ] Design By Contract: Pre/Postcondition as a Contract
-    - [ ] Assumed Precondition (Non-Redundancy) Principle
-    - [ ] Pre/Postcondition Violation Rules
-    - [ ] Reasonable Precondition Principle
-    - [ ] Precondition Availability Rule
-    - [ ] Understanding Pre/Postcondition Assertions
-- [ ] Change of Contract (Pre/Postcondition) 
-  - [ ] Rule of Contract Change, Stronger/weaker conditions
-- [ ] Object-oriented design
+- [X] Basic Design Principles
+  - [X] Concepts 
+    - [X] Modularity
+    - [X] Cohesion
+    - [X] Coupling
+    - [X] Encapsulation
+    - [X] Information hiding
+  - [X] Precondition & Postcondition
+    - [X] Options for Precondition Design: Validated and Assumed Precondition
+  - [X] Design By Contract: Pre/Postcondition as a Contract
+    - [X] Assumed Precondition (Non-Redundancy) Principle
+    - [X] Pre/Postcondition Violation Rules
+    - [X] Reasonable Precondition Principle
+    - [X] Precondition Availability Rule
+    - [X] Understanding Pre/Postcondition Assertions
+  - [X] Change of Contract (Pre/Postcondition) 
+    - [X] Rule of Contract Change, Stronger/weaker conditions
+- [X] Object-oriented design
   - [X] Class Diagrams 
   - [X] ADTs vs classes
   - [X] Inheritance
     - [X] Overriding, Polymorphism/Dynamic Binding
     - [X] Module View vs Type View
     - [X] Method Overriding: Pre/Postconditions
-    - [ ] Design By Contract vs Subcontracting **< blocked on Design by Contract**
+    - [X] Design By Contract vs Subcontracting
     - [X] Method Overriding: Co-variance and contra-variance
   - [X] Design Heuristics
     - [X] Cohesive Abstraction

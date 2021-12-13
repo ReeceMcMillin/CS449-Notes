@@ -2,6 +2,8 @@
 
 > **Software Quality Assurance**
 > 
+> ---
+> 
 > A set of activities that monitor and assess the software development methods and processes in a project to ensure proper quality of the software.
 
 Software quality assurance involves both *product* and *process* assurance.

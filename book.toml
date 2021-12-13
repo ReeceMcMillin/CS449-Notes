@@ -3,7 +3,7 @@ authors = ["Reece McMillin"]
 language = "en"
 multilingual = false
 src = "src"
-title = "CS449 Final Review"
+title = "CS449 Textbook Notes"
 
 [output.html]
 mathjax-support = true
