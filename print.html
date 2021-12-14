@@ -1592,7 +1592,7 @@ class CatShelter extends AnimalShelter {
 }
 </code></pre>
 <p>In this example, <code>Client</code> interacts <em>directly</em> with <code>Server</code> In other words, they are tightly coupled. It may be better to extract an abstract interface from <code>Server</code> that <code>Client</code> can interact with.</p>
-<p>Recall this <a href="7//4/4.1#basic-example">example</a> from Chapter 4:</p>
+<p>Recall this <a href="7/../4/4.1#basic-example">example</a> from Chapter 4:</p>
 <pre><code class="language-java">public class Client {
     public void bar(D d) {
         E e = d.getE();
@@ -1633,7 +1633,7 @@ class CatShelter extends AnimalShelter {
 <li>Hide Delegate</li>
 <li>Self-Encapsulate Field</li>
 </ul>
-<p>Book example: <code>CardManager</code> class has method <code>updateLimit()</code> which has direct access to an instance variable in <code>Card</code> class. Hiding the instance variable and providing <a href="7//5/5.4.html#accessors-and-mutators">setters and getters</a> within <code>Card</code> would be a valuable refactoring.</p>
+<p>Book example: <code>CardManager</code> class has method <code>updateLimit()</code> which has direct access to an instance variable in <code>Card</code> class. Hiding the instance variable and providing <a href="7/../5/5.4.html#accessors-and-mutators">setters and getters</a> within <code>Card</code> would be a valuable refactoring.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-for-inheritancepolymorphism"><a class="header" href="#refactoring-for-inheritancepolymorphism">Refactoring for Inheritance/Polymorphism</a></h1>
 <p>Refer back to the <a href="http:///5/5.5.md#example-closed-shape-vs-open-shape-p-143">closed shape vs. open shape</a> example.</p>
 <p>Code examples and chapter-specific context are available on page 208.</p>
