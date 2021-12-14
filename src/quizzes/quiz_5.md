@@ -15,9 +15,9 @@
 > 
 > - Polymorphism: a child class can "stand in" for its parent class.
 > - Method Overriding: child class overrides a method inherited from a parent class
-> - Dynamic Binding: more complicated - see the information under the dynamic binding definition in [section 5.3](/5/5.3.md)
+> - Dynamic Binding: more complicated - see the information under the dynamic binding definition in [section 5.3](../5/5.3.md)
 > 
-> More information can be found in [Section 5.3.](/5/5.3.md)
+> More information can be found in [Section 5.3.](../5/5.3.md)
 
 ### 2. In the `Square` vs. `Rectangle` example discussed in class, which statement is correct?
 
@@ -38,7 +38,7 @@
   > 
   > This is fundamentally the same issue as the `Stack<E> extends Vector<E>` problem.
   > 
-  > [Further reading (consider the subtype definition)](/5/5.3.md#example-square-vs-rectangle-p-123-125)
+  > [Further reading (consider the subtype definition)](../5/5.3.md#example-square-vs-rectangle-p-123-125)
 
 ### 3. Which of the following views about inheritance is based on the "is-a" relation?
 

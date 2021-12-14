@@ -78,7 +78,7 @@ class CatShelter extends AnimalShelter {
 >
 > Subcontracting is a form of design by contract that makes certain guarantees about the pre/postcondition behavior of class descendants.
 > 
-> Recall the Subcontracting Rule of Inheritance listed in [section 5.3.](/5/5.3.md#prepostcondition-of-method-overriding)
+> Recall the Subcontracting Rule of Inheritance listed in [section 5.3.](../5/5.3.md#prepostcondition-of-method-overriding)
 
 ## Footnotes
 

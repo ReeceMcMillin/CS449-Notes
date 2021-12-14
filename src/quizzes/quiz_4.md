@@ -15,7 +15,7 @@
 > 
 > **Explanation:**
 > 
-> Recall the [instance-level relationship notation.](/5/5.1.md#instance-level-relationship)
+> Recall the [instance-level relationship notation.](../5/5.1.md#instance-level-relationship)
 
 ### 3. The relationship between class C and classes D/E in the given class diagram is:
    
@@ -32,7 +32,7 @@
 > 
 > **Explanation:**
 > 
-> Recall the [instance-level relationship notation.](/5/5.1.md#instance-level-relationship)
+> Recall the [instance-level relationship notation.](../5/5.1.md#instance-level-relationship)
 
 ### 4. Which of the following is not a type of association relationship in class diagrams?
 
@@ -51,4 +51,4 @@
   > Inheritance is a *class-level* relationship while association is an *instance-level* relationship.
   > - All other options are *types* of association.
   > 
-  > Information on specific types and examples of instance-level relationships can be found in [Section 5.1.](/5/5.1.md#instance-level-relationship)
+  > Information on specific types and examples of instance-level relationships can be found in [Section 5.1.](../5/5.1.md#instance-level-relationship)

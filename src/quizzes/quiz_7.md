@@ -43,4 +43,4 @@
 >
 > **Explanation:**
 >
-> This is the definition of the [Single Responsibility Principle](/5/5.5.md#single-responsibility-principle)
+> This is the definition of the [Single Responsibility Principle](../5/5.5.md#single-responsibility-principle)

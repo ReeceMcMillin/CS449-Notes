@@ -84,6 +84,6 @@ assert abs(y * y-x) < eps
 > 
 > **Explanation:**
 > 
-> Recall the [Pre/Postcondition Violation Rules.](/4/4.3.md#prepostcondition-violation-rules)
+> Recall the [Pre/Postcondition Violation Rules.](../4/4.3.md#prepostcondition-violation-rules)
 >
 > Client B violates Supplier A's precondition, so the client (B) is at fault.
