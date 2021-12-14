@@ -28,7 +28,7 @@
 >
 > **Explanation:**
 >
-> If this isn't self-explanatory, review [section 5.4.](/5/5.4.md#accessors-and-mutators)
+> If this isn't self-explanatory, review [section 5.4.](../5/5.4.md#accessors-and-mutators)
 
 ### 3. Which of the following statements about the Single Responsibility Principle is correct?
 

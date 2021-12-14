@@ -29,7 +29,7 @@ Automated tests help make refactoring safe and efficient.
   - When you're just trying to get the program to *work*, you're probably not thinking about the future developer (you) who will have to maintain it.
 - Help find bugs
   - Part of refactoring is building a deep understanding of the relevant code. Building this understanding can help make intended behavior more clear.
-- Help program faster
+- Help write code faster
   - Poor design causes bottlenecks, refactoring helps clear out bad design.
 
 
