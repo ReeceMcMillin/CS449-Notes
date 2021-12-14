@@ -212,13 +212,13 @@
 </blockquote>
 <p>A module with high cohesion means that the module's elements have a high degree of connectedness.</p>
 <p>Ideally, a cohesive method does one function or action. All statements in the method body work together to achieve the method's higher-level functionality.</p>
-<p>A good <a href="/7/7.1.html">code smell</a> for low cohesion is the method name: if the statements in a method are not connected, it can be hard to find a concise name for the method. </p>
+<p>A good <a href="../7/7.1.html">code smell</a> for low cohesion is the method name: if the statements in a method are not connected, it can be hard to find a concise name for the method. </p>
 <ul>
 <li>the <code>doStuff()</code> method</li>
 </ul>
 <p>Cohesion focuses on the class interface, meaning the <em>public</em> constructors and methods.</p>
 <ul>
-<li>A cohesive class's public interface should justify is as an <a href="/5/5.2.html">abstract data type</a>.</li>
+<li>A cohesive class's public interface should justify is as an <a href="../5/5.2.html">abstract data type</a>.</li>
 <li>The public constructors/methods belong together and represent the essential properties of an object.</li>
 </ul>
 <p>For example, a <code>Stack&lt;E&gt;</code> is defined by its last-in-first-out (LIFO) property. Thus, a cohesive design of stack might look like the following:</p>
@@ -288,7 +288,7 @@
 <p>Loose coupling is often associated with high cohesion.</p>
 <p>The goal is to minimize the number of modules affected by requirements change <strong>if feasible and reasonable</strong>, because it will make the modules mor reusable and testable.</p>
 <h3 id="basic-example"><a class="header" href="#basic-example">Basic Example</a></h3>
-<p>Note: there's a whole section on refactoring to reduce coupling <a href="/7/7.5.html">right here</a>.</p>
+<p>Note: there's a whole section on refactoring to reduce coupling <a href="../7/7.5.html">right here</a>.</p>
 <p>Consider the following code:</p>
 <pre><code class="language-java">public class Client {
     public void bar(D d) {
@@ -370,7 +370,7 @@ public class SamsungTV {
 <hr />
 <p>The act of hiding information inside a module, i.e., making it invisible to the modules clients.</p>
 </blockquote>
-<p>Good practice is for a class to make each instance variable private, setting a public <a href="/5/5.4.html#accessors-and-mutators">accessor (getter) and, if necessary, mutator (setter)</a>.</p>
+<p>Good practice is for a class to make each instance variable private, setting a public <a href="../5/5.4.html#accessors-and-mutators">accessor (getter) and, if necessary, mutator (setter)</a>.</p>
 <p>Public instance variables (global variables) are notoriously difficult to debug. They also tend to change over time, requiring all clients to change.</p>
 <p>A class's testability should be considered when decisions on getters and setters are made - a test may need a getter to verify that a variable has the right value.</p>
 <p>Encapsulation can decrease the need for public instance variables - when all relevant methods are encapsulated within the same module, they all share a common visibility and access can be more appropriately restricted to the outside world.</p>
